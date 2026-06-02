@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna Herbtea® | 月と巡る12ヵ月講座</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --green:   #66cdaa;
+      --green-dk:#4aae8c;
+      --beige:   #e9dacb;
+      --beige-lt:#f6f0e9;
+      --pink:    #db7093;
+      --white:   #ffffff;
+      --text:    #333333;
+      --text-md: #666666;
+      --text-lt: #999999;
+      --ff-min:  'Shippori Mincho', 'Noto Serif JP', serif;
+      --ff-sans: 'Noto Sans JP', sans-serif;
+      --mw:      430px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-sans);
+      color: var(--text);
+      background: #c8b89a;
+      min-height: 100vh;
+    }
+
+    /* PC side background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&q=40');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.25) saturate(0.5);
+      z-index: 0;
+    }
+
+    .lp {
+      max-width: var(--mw);
+      margin: 0 auto;
+      background: var(--white);
+      position: relative;
+      z-index: 1;
+      overflow-x: hidden;
+    }
+
+    /* ---- type ---- */
+    h1,h2,h3,h4 { font-family: var(--ff-min); font-weight: 500; line-height: 1.55; letter-spacing: 0.04em; }
+    p { line-height: 1.9; }
+    img { display: block; width: 100%; height: auto; }
+    a { text-decoration: none; }
+
+    /* ---- layout ---- */
+    .sec { padding: 72px 36px; }
+    .sec-beige { background: var(--beige-lt); }
+    .sec-beige2 { background: var(--beige); }
+    .sec-dark { background: #2a2a2a; }
+    .sec-green { background: var(--green); }
+
+    .lbl {
+      font-family: var(--ff-sans);
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+    .lbl-white { color: rgba(255,255,255,0.7); }
+
+    .ttl { font-size: 32px; line-height: 1.55; margin-bottom: 20px; }
+    .ttl em { font-style: normal; color: var(--green-dk); }
+    .ttl-white { color: var(--white); }
+    .ttl-white em { color: rgba(255,255,255,0.85); }
+
+    .body-txt { font-size: 18px; color: var(--text-md); line-height: 1.9; margin-bottom: 36px; }
+    .rule { width: 36px; height: 1px; background: var(--green); margin: 20px 0; }
+
+    /* ---- buttons ---- */
+    .btn {
+      display: block;
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      padding: 20px 28px;
+      font-size: 20px;
+      font-family: var(--ff-min);
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+      line-height: 1.5;
+    }
+    .btn:hover { background: var(--green-dk); }
+    .btn-outline {
+      display: block;
+      border: 1px solid var(--text);
+      color: var(--text);
+      text-align: center;
+      padding: 18px 28px;
+      font-size: 18px;
+      font-family: var(--ff-min);
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 14px;
+    }
+    .btn-outline:hover { background: var(--text); color: #fff; }
+    .btn-white {
+      background: var(--white);
+      color: var(--green);
+    }
+    .btn-white:hover { background: var(--beige-lt); color: var(--green-dk); }
+    .btn-pink { background: var(--pink); }
+    .btn-pink:hover { background: #c05580; }
+
+    /* ---- diagonal dividers ---- */
+    .diag-down { /* previous bg → next bg (white→beige) */
+      height: 56px;
+      background: var(--beige-lt);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      margin-top: -1px;
+    }
+    .diag-up { /* beige → white */
+      height: 56px;
+      background: var(--white);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      margin-top: -1px;
+    }
+    .diag-down-dark { /* beige → dark */
+      height: 56px;
+      background: #2a2a2a;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      margin-top: -1px;
+    }
+    .diag-up-white { /* dark → white */
+      height: 56px;
+      background: var(--white);
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      margin-top: -1px;
+    }
+    .diag-down-green { /* white → green */
+      height: 56px;
+      background: var(--green);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      margin-top: -1px;
+    }
+    .diag-up-beige { /* green → beige */
+      height: 56px;
+      background: var(--beige-lt);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      margin-top: -1px;
+    }
+
+
+    /* ============================================================
+       SEC 1 · HERO (FV)
+    ============================================================ */
+    /* ---- HERO (redesigned) ---- */
+    .hero {
+      background: #faf5ef;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 上段：左テキスト / 右写真 */
+    .hero__split {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      height: 52svh;
+      min-height: 280px;
+    }
+
+    .hero__text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px 10px 20px 24px;
+    }
+
+    .hero__lbl {
+      font-family: var(--ff-min);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--green-dk);
+      margin-bottom: 14px;
+    }
+
+    .hero__main {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .hero__sub {
+      font-size: 12px;
+      color: var(--text-md);
+      line-height: 1.8;
+    }
+
+    .hero__photo-col {
+      overflow: hidden;
+      position: relative;
+    }
+    .hero__photo-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .hero__photo-col::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 48px;
+      background: linear-gradient(to top, #faf5ef, transparent);
+    }
+
+    /* 中段：ブランド名 */
+    .hero__brand-center {
+      text-align: center;
+      padding: 14px 20px 10px;
+      border-top: 1px solid rgba(102,205,170,0.2);
+    }
+    .hero__brand-script {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--green-dk);
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+    .hero__brand-course {
+      font-family: var(--ff-min);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: var(--text-md);
+    }
+
+    /* バッジ3つ */
+    .hero__badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+    }
+    .hero__badge-c {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: white;
+      border: 1.5px solid rgba(102,205,170,0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1px;
+    }
+    .bdc-lbl {
+      font-size: 9px;
+      color: var(--text-lt);
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+    }
+    .bdc-num {
+      font-family: var(--ff-sans);
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.15;
+    }
+    .bdc-unit {
+      font-size: 9px;
+      color: var(--text-md);
+    }
+
+    /* 下段：注記 + CTA */
+    .hero__bottom {
+      padding: 8px 24px 24px;
+      text-align: center;
+    }
+    .hero__note {
+      font-size: 11px;
+      color: var(--text-lt);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+
+    /* ============================================================
+       SEC 2 · SYMPATHY
+    ============================================================ */
+    .sympathy { background: var(--white); }
+
+    .sympathy__lead {
+      font-size: 28px;
+      font-family: var(--ff-min);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .sympathy__intro {
+      font-size: 18px;
+      color: var(--text-md);
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    .check-list { list-style: none; margin-bottom: 40px; }
+    .check-list li {
+      font-size: 19px;
+      line-height: 1.75;
+      padding: 16px 0 16px 32px;
+      border-bottom: 1px solid var(--beige);
+      position: relative;
+    }
+    .check-list li:first-child { border-top: 1px solid var(--beige); }
+    .check-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 24px;
+      width: 18px; height: 18px;
+      border: 1.5px solid var(--green);
+      background: var(--white);
+    }
+    .check-list li::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 27px;
+      width: 10px; height: 7px;
+      border-left: 2px solid var(--green);
+      border-bottom: 2px solid var(--green);
+      transform: rotate(-45deg);
+    }
+
+    .sympathy__close {
+      font-family: var(--ff-min);
+      font-size: 20px;
+      line-height: 1.9;
+      color: var(--text);
+      padding-top: 8px;
+    }
+
+    .sympathy__photo {
+      margin: 40px -36px 0;
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+    .sympathy__photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    /* ============================================================
+       SEC 3 · RISK
+    ============================================================ */
+    .risk { background: var(--beige-lt); }
+
+    .risk__photo {
+      margin: 36px -36px;
+      height: 240px;
+      overflow: hidden;
+    }
+    .risk__photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .risk__body {
+      font-size: 18px;
+      color: var(--text);
+      line-height: 2.0;
+    }
+    .risk__body p + p { margin-top: 20px; }
+    .risk__accent {
+      font-family: var(--ff-min);
+      font-size: 20px;
+      color: var(--text);
+      border-left: 3px solid var(--green);
+      padding-left: 18px;
+      margin: 28px 0;
+      line-height: 1.8;
+    }
+
+
+    /* ============================================================
+       SEC 4 · CAUSES
+    ============================================================ */
+    .causes { background: var(--white); }
+
+    .causes__lead {
+      font-size: 18px;
+      color: var(--text-md);
+      margin-bottom: 44px;
+      line-height: 1.8;
+    }
+
+    .cause-cards { display: flex; flex-direction: column; gap: 24px; }
+
+    .cause-card {
+      background: var(--beige-lt);
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .cause-num {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-size: 56px;
+      font-weight: 300;
+      font-family: var(--ff-sans);
+      color: var(--beige);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .cause-chip {
+      display: inline-block;
+      border: 1px solid var(--green);
+      color: var(--green-dk);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      padding: 4px 14px;
+      margin-bottom: 14px;
+    }
+
+    .cause-title {
+      font-size: 24px;
+      margin-bottom: 14px;
+      line-height: 1.5;
+      padding-right: 52px;
+    }
+
+    .cause-desc {
+      font-size: 17px;
+      color: var(--text-md);
+      line-height: 1.85;
+    }
+
+
+    /* ============================================================
+       SEC 5 · SOLUTION
+    ============================================================ */
+    .solution { background: var(--white); }
+
+    .solution__hero-photo {
+      margin: 0 -36px;
+      height: 360px;
+      overflow: hidden;
+    }
+    .solution__hero-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .solution__body {
+      padding-top: 52px;
+    }
+
+    .solution__accent {
+      font-family: var(--ff-min);
+      font-size: 28px;
+      color: var(--green-dk);
+      text-align: center;
+      padding: 32px 0;
+      line-height: 1.6;
+      border-top: 1px solid var(--beige);
+      border-bottom: 1px solid var(--beige);
+      margin: 32px 0;
+    }
+
+    .solution__list { list-style: none; margin: 28px 0; }
+    .solution__list li {
+      font-size: 18px;
+      padding: 10px 0 10px 20px;
+      position: relative;
+      color: var(--text-md);
+      line-height: 1.7;
+    }
+    .solution__list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20px;
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .solution__close {
+      font-family: var(--ff-min);
+      font-size: 19px;
+      line-height: 1.95;
+      color: var(--text);
+    }
+
+
+    /* ============================================================
+       SEC 6 · COURSE INTRO
+    ============================================================ */
+    .course-intro { background: var(--white); }
+
+    .course-intro__photo {
+      margin: 0 -36px 44px;
+      height: 320px;
+      overflow: hidden;
+      position: relative;
+    }
+    .course-intro__photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+    /* plant watermark overlay */
+    .course-intro__photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, transparent 40%, rgba(255,255,255,0.5) 100%);
+    }
+
+    .course-intro__name {
+      font-size: 15px;
+      letter-spacing: 0.25em;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .course-intro__ttl {
+      font-size: 28px;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .course-intro__q {
+      font-family: var(--ff-min);
+      font-size: 22px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .course-intro__body {
+      font-size: 18px;
+      color: var(--text-md);
+      line-height: 1.95;
+    }
+    .course-intro__body p + p { margin-top: 18px; }
+
+
+    /* ============================================================
+       SEC 7 · USP COMPARISON
+    ============================================================ */
+    .usp { background: var(--beige-lt); }
+
+    .usp__table {
+      margin-top: 44px;
+      border: 1px solid rgba(102,205,170,0.3);
+      overflow: hidden;
+    }
+
+    .usp__head {
+      display: grid;
+      grid-template-columns: 2fr 1.6fr 1.6fr;
+    }
+
+    .usp__th {
+      padding: 16px 12px;
+      font-size: 14px;
+      font-family: var(--ff-min);
+      text-align: center;
+      line-height: 1.4;
+      background: var(--beige);
+      color: var(--text-md);
+      border-right: 1px solid rgba(102,205,170,0.2);
+    }
+    .usp__th:last-child { border-right: none; }
+    .usp__th.luna {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .usp__row {
+      display: grid;
+      grid-template-columns: 2fr 1.6fr 1.6fr;
+      border-top: 1px solid var(--beige);
+    }
+
+    .usp__td {
+      padding: 16px 10px;
+      font-size: 15px;
+      text-align: center;
+      color: var(--text-lt);
+      border-right: 1px solid var(--beige);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .usp__td:last-child { border-right: none; }
+    .usp__td.label {
+      text-align: left;
+      justify-content: flex-start;
+      padding-left: 16px;
+      font-size: 15px;
+      color: var(--text-md);
+    }
+    .usp__td.luna {
+      background: rgba(255,255,255,0.8);
+      color: var(--green-dk);
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .cross { color: #ccc; font-size: 16px; }
+
+
+    /* ============================================================
+       SEC 8 · REASONS
+    ============================================================ */
+    .reasons { background: var(--white); }
+
+    .reason-cards { display: flex; flex-direction: column; gap: 40px; margin-top: 48px; }
+
+    .reason-card { }
+
+    .reason-photo {
+      height: 220px;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .reason-photo img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .reason-card:hover .reason-photo img { transform: scale(1.04); }
+
+    .reason-body { padding: 28px 0 0; }
+
+    .reason-num {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .reason-ttl {
+      font-size: 24px;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .reason-desc {
+      font-size: 18px;
+      color: var(--text-md);
+      line-height: 1.9;
+    }
+
+    /* horizontal rule between cards */
+    .reason-card + .reason-card {
+      border-top: 1px solid var(--beige);
+      padding-top: 40px;
+    }
+
+
+    /* ============================================================
+       SEC 9 · NUMBERS
+    ============================================================ */
+    .numbers { background: #2a2a2a; padding: 80px 36px; }
+
+    .numbers-ttl {
+      font-size: 26px;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .numbers-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 64px;
+      letter-spacing: 0.05em;
+    }
+
+    .num-list { display: flex; flex-direction: column; gap: 52px; }
+
+    .num-item {
+      border-left: 2px solid var(--green);
+      padding-left: 28px;
+    }
+
+    .num-big {
+      font-family: var(--ff-sans);
+      font-size: 88px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .num-big sub {
+      font-size: 32px;
+      font-weight: 300;
+      vertical-align: baseline;
+      letter-spacing: 0;
+    }
+
+    .num-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+    }
+
+
+    /* ============================================================
+       SEC 10 · TESTIMONIALS
+    ============================================================ */
+    .testimonials { background: #eef5f2; padding: 72px 36px; }
+
+    .testimonials__head { margin-bottom: 40px; }
+
+    .testimonials__scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .t-card {
+      background: var(--white);
+      padding: 32px 28px;
+    }
+
+    .t-card__qt {
+      font-family: Georgia, serif;
+      font-size: 44px;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .t-card__text {
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .t-card__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid var(--beige);
+      padding-top: 18px;
+    }
+
+    .t-card__avatar {
+      width: 48px; height: 48px;
+      background: var(--beige);
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .t-card__avatar img { height: 100%; object-fit: cover; }
+
+    .t-card__name { font-size: 16px; font-weight: 500; }
+    .t-card__meta { font-size: 13px; color: var(--text-lt); }
+
+    .t-card__note {
+      font-size: 12px;
+      color: var(--text-lt);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .testimonials__hint { display: none; }
+
+
+    /* ============================================================
+       SEC 11 · MID CTA
+    ============================================================ */
+    .mid-cta {
+      background: var(--green);
+      padding: 64px 36px;
+      text-align: center;
+    }
+
+    .mid-cta__lead {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .mid-cta__ttl {
+      font-size: 26px;
+      color: var(--white);
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+
+    .mid-cta__note {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 36px;
+      letter-spacing: 0.05em;
+    }
+
+    .mid-cta__gift {
+      background: rgba(255,255,255,0.15);
+      padding: 24px;
+      margin-top: 28px;
+      text-align: left;
+    }
+
+    .mid-cta__gift-ttl {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+
+    .mid-cta__gift-name {
+      font-family: var(--ff-min);
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .mid-cta__gift-list { list-style: none; }
+    .mid-cta__gift-list li {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 0 8px 16px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      line-height: 1.6;
+    }
+    .mid-cta__gift-list li:last-child { border-bottom: none; }
+    .mid-cta__gift-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 16px;
+      width: 6px; height: 6px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 50%;
+    }
+
+
+    /* ============================================================
+       SEC 12 · COURSE OVERVIEW (TIMELINE)
+    ============================================================ */
+    .overview { background: var(--beige-lt); }
+
+    .overview__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .overview__tag {
+      font-size: 13px;
+      border: 1px solid var(--green);
+      color: var(--green-dk);
+      padding: 6px 14px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Season timeline */
+    .season-timeline {
+      margin: 44px 0;
+      position: relative;
+    }
+    .season-timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px; top: 40px; bottom: 40px;
+      width: 1px;
+      background: var(--green);
+      opacity: 0.3;
+    }
+
+    .season-item {
+      display: flex;
+      gap: 22px;
+      margin-bottom: 44px;
+    }
+    .season-item:last-child { margin-bottom: 0; }
+
+    .season-dot {
+      width: 56px; height: 56px;
+      flex-shrink: 0;
+      background: var(--white);
+      border: 1.5px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-min);
+      font-size: 18px;
+      color: var(--green-dk);
+      position: relative;
+      z-index: 1;
+    }
+
+    .season-body { padding-top: 10px; flex: 1; }
+
+    .season-period {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+    .season-ttl { font-size: 24px; margin-bottom: 10px; line-height: 1.45; }
+
+    .season-desc {
+      font-size: 17px;
+      color: var(--text-md);
+      line-height: 1.8;
+    }
+
+    .overview__includes {
+      margin-top: 48px;
+      border-top: 1px solid var(--beige);
+      padding-top: 36px;
+    }
+
+    .include-list { list-style: none; }
+    .include-list li {
+      font-size: 18px;
+      padding: 14px 0 14px 22px;
+      border-bottom: 1px solid var(--beige);
+      position: relative;
+      line-height: 1.65;
+    }
+    .include-list li:last-child { border-bottom: none; }
+    .include-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 22px;
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .overview__notice {
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--text-lt);
+      line-height: 1.8;
+      border-left: 2px solid var(--beige);
+      padding-left: 16px;
+    }
+    .overview__notice p + p { margin-top: 8px; }
+
+
+    /* ============================================================
+       SEC 13 · FREE CONSULTATION
+    ============================================================ */
+    .consult { background: var(--white); }
+
+    .consult-items { display: flex; flex-direction: column; gap: 0; margin-top: 44px; }
+
+    .consult-item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--beige);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .consult-item:first-child { border-top: 1px solid var(--beige); }
+
+    .consult-no {
+      font-family: var(--ff-sans);
+      font-size: 44px;
+      font-weight: 300;
+      color: var(--beige);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 52px;
+      letter-spacing: -0.03em;
+    }
+
+    .consult-body h4 {
+      font-size: 22px;
+      font-family: var(--ff-min);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .consult-body p {
+      font-size: 17px;
+      color: var(--text-md);
+      line-height: 1.85;
+    }
+
+    .consult__note {
+      margin-top: 36px;
+      padding: 24px;
+      background: var(--beige-lt);
+      font-size: 16px;
+      color: var(--text-md);
+      line-height: 1.8;
+    }
+
+
+    /* ============================================================
+       SEC 14 · INSTRUCTOR STORY
+    ============================================================ */
+    .instructor { background: var(--beige-lt); }
+
+    .instructor__headline {
+      font-size: 32px;
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+    .instructor__headline em {
+      font-style: normal;
+      color: var(--green-dk);
+    }
+
+    .inst__photo {
+      height: 400px;
+      overflow: hidden;
+      margin: 0 -36px 40px;
+    }
+    .inst__photo img {
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    /* story */
+    .story-blocks { margin-top: 48px; }
+
+    .story-label {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: var(--text-lt);
+      margin-bottom: 28px;
+    }
+
+    .story-before {
+      background: rgba(180,170,160,0.15);
+      padding: 32px 28px;
+      margin-bottom: 0;
+    }
+
+    .story-badge-before {
+      display: inline-block;
+      background: #aaa;
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      padding: 5px 16px;
+      margin-bottom: 18px;
+    }
+
+    .story-text {
+      font-family: var(--ff-min);
+      font-size: 18px;
+      line-height: 2.0;
+      color: var(--text);
+    }
+
+    .story-arrow {
+      text-align: center;
+      padding: 12px 0;
+      background: var(--beige-lt);
+    }
+    .story-arrow svg { width: 32px; height: 32px; }
+
+    .story-after {
+      background: var(--white);
+      border: 1.5px solid var(--green);
+      padding: 32px 28px;
+    }
+
+    .story-badge-after {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      padding: 5px 16px;
+      margin-bottom: 18px;
+    }
+
+    .inst__body {
+      font-size: 18px;
+      line-height: 1.95;
+      color: var(--text);
+      margin-top: 40px;
+    }
+    .inst__body p + p { margin-top: 18px; }
+
+    /* profile */
+    .inst__profile {
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--beige);
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .inst__avatar {
+      width: 80px; height: 80px;
+      background: var(--beige);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .inst__avatar img { height: 100%; object-fit: cover; }
+
+    .inst__name {
+      font-size: 22px;
+      font-family: var(--ff-min);
+      margin-bottom: 4px;
+    }
+    .inst__role {
+      font-size: 13px;
+      color: var(--text-lt);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .inst__creds { list-style: none; }
+    .inst__creds li {
+      font-size: 15px;
+      color: var(--text-md);
+      padding: 6px 0 6px 14px;
+      position: relative;
+      border-bottom: 1px solid var(--beige);
+      line-height: 1.55;
+    }
+    .inst__creds li:last-child { border-bottom: none; }
+    .inst__creds li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 13px;
+      width: 5px; height: 5px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+
+    /* ============================================================
+       SEC 15 · FAQ
+    ============================================================ */
+    .faq { background: var(--white); }
+
+    .faq-list { margin-top: 44px; }
+
+    .faq-item { border-bottom: 1px solid var(--beige); }
+    .faq-item:first-child { border-top: 1px solid var(--beige); }
+
+    .faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 24px 0;
+      cursor: pointer;
+      font-family: var(--ff-min);
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.65;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--green-dk); }
+
+    .faq-qmark {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green);
+      flex-shrink: 0;
+      line-height: 1.2;
+    }
+
+    .faq-qtext { flex: 1; }
+
+    .faq-toggle {
+      width: 26px; height: 26px;
+      flex-shrink: 0;
+      border: 1px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .faq-toggle svg {
+      width: 13px; height: 13px;
+      color: var(--green);
+      transition: transform 0.28s ease;
+    }
+    .faq-item.open .faq-toggle svg { transform: rotate(180deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-a-inner {
+      padding: 0 0 28px 36px;
+      font-size: 18px;
+      color: var(--text-md);
+      line-height: 1.9;
+    }
+
+
+    /* ============================================================
+       SEC 16 · FINAL CTA
+    ============================================================ */
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=860&q=70');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .final-cta__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(233,218,203,0.9);
+    }
+
+    .final-cta__body {
+      position: relative;
+      z-index: 2;
+      padding: 80px 36px 140px;
+      text-align: center;
+    }
+
+    .final-cta__ttl {
+      font-size: 28px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .final-cta__body-txt {
+      font-size: 18px;
+      color: var(--text-md);
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+
+    .final-cta__gift {
+      background: rgba(255,255,255,0.85);
+      padding: 28px 24px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .final-cta__gift-name {
+      font-family: var(--ff-min);
+      font-size: 16px;
+      color: var(--green-dk);
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+
+    .final-cta__gift-list { list-style: none; }
+    .final-cta__gift-list li {
+      font-size: 17px;
+      padding: 10px 0 10px 20px;
+      border-bottom: 1px solid var(--beige);
+      position: relative;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .final-cta__gift-list li:last-child { border-bottom: none; }
+    .final-cta__gift-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 18px;
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .final-cta__limit {
+      font-size: 15px;
+      color: var(--pink);
+      font-family: var(--ff-min);
+      margin-top: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .final-cta__detail {
+      font-size: 15px;
+      color: var(--text-lt);
+      margin-top: 8px;
+    }
+
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 52px 36px 100px;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .footer__brand {
+      font-family: var(--ff-min);
+      font-size: 16px;
+      color: var(--white);
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
+    }
+    .footer a { color: rgba(255,255,255,0.45); }
+    .footer a + a::before { content: '  |  '; }
+
+
+    /* ============================================================
+       STICKY BOTTOM CTA
+    ============================================================ */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: var(--mw);
+      background: rgba(255,255,255,0.97);
+      border-top: 1px solid var(--beige);
+      padding: 10px 20px 12px;
+      z-index: 300;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.07);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      backdrop-filter: blur(6px);
+    }
+    .sticky-cta.hidden {
+      transform: translateX(-50%) translateY(100%);
+      opacity: 0;
+    }
+    .sticky-text { flex: 1; }
+    .sticky-lbl { font-size: 10px; letter-spacing: 0.12em; color: var(--pink); }
+    .sticky-name {
+      font-family: var(--ff-min);
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .sticky-cta .btn {
+      flex-shrink: 0;
+      padding: 14px 16px;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+<div class="lp" id="lp">
+
+<!-- ====================================================
+     SEC 1 · HERO
+===================================================== -->
+<section class="hero" aria-label="ファーストビュー">
+
+  <!-- 上段：左コピー / 右写真 -->
+  <div class="hero__split">
+    <div class="hero__text-col">
+      <span class="hero__lbl">Luna Herbtea&#xAE;</span>
+      <h1 class="hero__main">
+        「なんとなく<br>不調」を、<br>自分で整えられる<br>わたしへ。
+      </h1>
+      <p class="hero__sub">
+        薬に頼る前に、<br>ハーブティーで<br>心と体を整える<br>12ヶ月の習慣づくり
+      </p>
+    </div>
+    <!-- ※ 写真差し替え時は src を変更してください -->
+    <div class="hero__photo-col">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=85"
+           alt="女性がハーブティーを楽しむ様子">
+    </div>
+  </div>
+
+  <!-- 中段：ブランド名 -->
+  <div class="hero__brand-center">
+    <p class="hero__brand-script">Luna Herbtea</p>
+    <p class="hero__brand-course">更年期セルフケア講座</p>
+  </div>
+
+  <!-- バッジ3つ -->
+  <div class="hero__badges">
+    <div class="hero__badge-c">
+      <span class="bdc-lbl">満足度</span>
+      <span class="bdc-num">100<span class="bdc-unit">%</span></span>
+    </div>
+    <div class="hero__badge-c">
+      <span class="bdc-lbl">累計<br>セッション</span>
+      <span class="bdc-num">500<span class="bdc-unit">名+</span></span>
+    </div>
+    <div class="hero__badge-c">
+      <span class="bdc-lbl">ブレンド<br>実績</span>
+      <span class="bdc-num">1,000<span class="bdc-unit">件+</span></span>
+    </div>
+  </div>
+
+  <!-- 注記 + CTAボタン -->
+  <div class="hero__bottom">
+    <p class="hero__note">
+      更年期セルフケア 無料カウンセリング実施中<br>
+      <span style="color:var(--pink); font-family:var(--ff-min);">毎月先着2名限定</span>
+    </p>
+    <a href="#final-cta" class="btn btn-pink">
+      ＼ まずは無料で相談してみる ／
+    </a>
+  </div>
+
+</section>
+
+
+<!-- ====================================================
+     SEC 2 · SYMPATHY
+===================================================== -->
+<section class="sec sympathy" aria-label="共感">
+  <div class="lbl">FOR YOU</div>
+  <h2 class="ttl">「なんとなく不調」、<br>我慢していませんか？</h2>
+
+  <p class="sympathy__intro">
+    病院に行くほどじゃない。<br>
+    でも、確かに感じている体の違和感。
+  </p>
+
+  <ul class="check-list" role="list">
+    <li>朝起きても疲れが取れない</li>
+    <li>夜、なかなか眠れない</li>
+    <li>理由もなくイライラしてしまう</li>
+    <li>ホットフラッシュで突然汗が止まらない</li>
+    <li>手足の冷え、むくみが気になる</li>
+    <li>PMSで毎月つらい</li>
+  </ul>
+
+  <p class="sympathy__close">
+    「歳のせいかな」「みんなそうだよね」<br>
+    そう思って、やり過ごしていませんか？
+  </p>
+
+  <div class="sympathy__photo" role="img" aria-label="不調に悩む女性のイメージ">
+    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=860&q=85"
+         alt="女性がリラックスしているイメージ" loading="lazy">
+  </div>
+</section>
+
+
+<!-- diagonal: white → beige -->
+<div class="diag-down" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 3 · RISK
+===================================================== -->
+<section class="sec risk" aria-label="放置リスク">
+  <div class="lbl">IMPORTANT</div>
+  <h2 class="ttl">その「なんとなく」を<br>放っておくと…</h2>
+
+  <div class="risk__body">
+    <p>最初は違和感程度でも、放置するほど悩みは深くなります。</p>
+    <p>「なんとなくの不調」が、やがて病気につながることも。</p>
+    <p>更年期の症状がひどくなったり、心のバランスを崩してしまうケースも少なくありません。</p>
+  </div>
+
+  <div class="risk__photo" role="img" aria-label="植物のイメージ">
+    <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=860&q=85"
+         alt="植物とハーブのイメージ" loading="lazy">
+  </div>
+
+  <div class="risk__accent">
+    大切なのは、体が出している"サイン"に気づくこと。<br>
+    そして、早めに自分で整える方法を知っておくこと。
+  </div>
+</section>
+
+
+<!-- diagonal: beige → white -->
+<div class="diag-up" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 4 · CAUSES
+===================================================== -->
+<section class="sec causes" aria-label="3つの原因">
+  <div class="lbl">ROOT CAUSE</div>
+  <h2 class="ttl">その不調、<br>原因は<em>３つ</em>あります。</h2>
+  <p class="causes__lead">「なんとなくの不調」には、主に3つの要因が</p>
+
+  <div class="cause-cards">
+
+    <div class="cause-card">
+      <div class="cause-num" aria-hidden="true">01</div>
+      <div class="cause-chip">ホルモンバランス</div>
+      <h3 class="cause-title">ホルモンバランスの変化</h3>
+      <p class="cause-desc">
+        女性ホルモン（エストロゲン）は年齢とともにゆるやかに変化。
+        肌や睡眠、気分のゆらぎなど、女性の心と体に深く関わるため、
+        変化の時期には不調を感じる方も少なくありません。
+      </p>
+    </div>
+
+    <div class="cause-card">
+      <div class="cause-num" aria-hidden="true">02</div>
+      <div class="cause-chip">自律神経</div>
+      <h3 class="cause-title">自律神経の<br>バランスの乱れ</h3>
+      <p class="cause-desc">
+        交感神経と副交感神経のスイッチがうまく切り替わらなくなる。
+        「疲れているのに休めない」「眠りたいのに眠れない」——
+        そんな状態は、自律神経のバランスが関係しているかも。
+      </p>
+    </div>
+
+    <div class="cause-card">
+      <div class="cause-num" aria-hidden="true">03</div>
+      <div class="cause-chip">巡り</div>
+      <h3 class="cause-title">巡り（気・血・水）の低下</h3>
+      <p class="cause-desc">
+        年齢を重ねるにつれて、気になる冷え・むくみ・重だるさ。
+        40代以降、毛細血管は最大で約40%が消失していくと言われています。
+        冷え、むくみ、便秘——巡りの滞りが、さまざまな不調として現れます。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- diagonal: white → beige -->
+<div class="diag-down" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 5 · SOLUTION
+===================================================== -->
+<section class="sec solution" style="background:var(--beige-lt); padding-top:0;" aria-label="解決策">
+
+  <div class="solution__hero-photo" role="img" aria-label="ハーブティーの写真">
+    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=860&q=85"
+         alt="ハーブティーのクローズアップ" loading="lazy">
+  </div>
+
+  <div class="solution__body" style="padding: 0 36px 72px;">
+    <div class="lbl" style="padding-top:52px;">SOLUTION</div>
+    <h2 class="ttl">その3つを、自然の力で整える方法、<br><em>それがハーブティー。</em></h2>
+
+    <p style="font-size:18px; color:var(--text-md); line-height:1.9; margin-bottom:28px;">
+      ハーブティーには、心と体にやさしく働きかける力があります。
+    </p>
+
+    <ul class="solution__list">
+      <li>女性のゆらぎに</li>
+      <li>リラックスタイム</li>
+      <li>美容やセルフケア習慣</li>
+    </ul>
+
+    <p style="font-size:18px; color:var(--text-md); line-height:1.9; margin-bottom:24px;">
+      など、目的や気分に合わせて美味しくブレンド。
+    </p>
+
+    <p style="font-size:16px; color:var(--text-lt); margin-bottom:8px;">しかも</p>
+
+    <div class="solution__accent">
+      「お湯を注いでたった３分待つだけ」
+    </div>
+
+    <p class="solution__close">
+      忙しい毎日でも、無理なく続けられるのが魅力です。<br><br>
+      「頑張って続ける」ではなく<br>
+      美味しさや香りを楽しみながら、自然に続けられる。<br><br>
+      そして、何より大切なのは<br>
+      「今の自分に合ったハーブ」を知ること。<br><br>
+      体も心も、毎日同じではありません。<br>
+      今の自分の状態にやさしく寄り添いながら、<br>
+      暮らしの中に少しずつ取り入れていく。<br><br>
+      それが、無理なく続けられる<br>
+      心地よいセルフケアにつながっていきます。
+    </p>
+  </div>
+</section>
+
+
+<!-- diagonal: beige → white -->
+<div class="diag-up" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 6 · COURSE INTRO
+===================================================== -->
+<section class="sec course-intro" aria-label="講座紹介">
+  <div class="lbl">COURSE</div>
+
+  <div class="course-intro__photo" role="img" aria-label="ハーブティーの世界観">
+    <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=860&q=85"
+         alt="ラベンダーと自然の写真" loading="lazy">
+  </div>
+
+  <h2 class="course-intro__q">
+    でも、「自分に合うハーブ」って<br>どうやって見つけるの？
+  </h2>
+
+  <div class="course-intro__name">月と巡る12ヵ月講座</div>
+
+  <h3 class="course-intro__ttl">
+    あなたの体と心に<br>寄り添う1年間
+  </h3>
+
+  <div class="course-intro__body">
+    <p>
+      それを一緒に見つけて、自分でブレンドできるようになるのが<br>
+      「月と巡る12ヵ月講座」です。
+    </p>
+    <p>
+      この講座は、ハーブの知識をただ学ぶ講座ではありません。<br>
+      「今のあなたの体の状態に気づき、自分で整えられるようになる」ための講座。
+    </p>
+    <p>
+      更年期の不調は人それぞれ違います。<br>
+      だからこそ、"正解"ではなく「あなたに合う整え方」を見つけて実践していきます。
+    </p>
+  </div>
+</section>
+
+
+<!-- diagonal: white → beige -->
+<div class="diag-down" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 7 · USP COMPARISON
+===================================================== -->
+<section class="sec usp" aria-label="独自性・比較">
+  <div class="lbl">WHY LUNA</div>
+  <h2 class="ttl">なぜ、Luna Herbteaの受講生は<br>「自分で整えられる」<br>ようになるのか</h2>
+
+  <p class="body-txt">
+    ハーブティーの講座は他にもあります。<br>
+    でも、多くの講座は「知識を覚えること」がゴール。<br><br>
+    Luna Herbteaが大切にしているのは、<br>
+    「一時的」ではなく「一生使える習慣」にすること。
+  </p>
+
+  <div class="usp__table" role="table" aria-label="比較表">
+    <div class="usp__head" role="row">
+      <div class="usp__th" role="columnheader">比較項目</div>
+      <div class="usp__th" role="columnheader">一般的な<br>講座</div>
+      <div class="usp__th luna" role="columnheader">Luna<br>Herbtea</div>
+    </div>
+    <div class="usp__row" role="row">
+      <div class="usp__td label" role="cell">ゴール設定</div>
+      <div class="usp__td" role="cell" style="font-size:13px; color:var(--text-lt);">知識を覚える</div>
+      <div class="usp__td luna" role="cell">一生使える習慣</div>
+    </div>
+    <div class="usp__row" role="row">
+      <div class="usp__td label" role="cell">アプローチ</div>
+      <div class="usp__td" role="cell"><span class="cross">詰め込み</span></div>
+      <div class="usp__td luna" role="cell">気づき&#43;実践</div>
+    </div>
+    <div class="usp__row" role="row">
+      <div class="usp__td label" role="cell">卒業後</div>
+      <div class="usp__td" role="cell"><span class="cross">使えない</span></div>
+      <div class="usp__td luna" role="cell">自然と続く</div>
+    </div>
+    <div class="usp__row" role="row">
+      <div class="usp__td label" role="cell">個別サポート</div>
+      <div class="usp__td" role="cell"><span class="cross">—</span></div>
+      <div class="usp__td luna" role="cell">LINE 無制限</div>
+    </div>
+    <div class="usp__row" role="row">
+      <div class="usp__td label" role="cell">不調への対応</div>
+      <div class="usp__td" role="cell"><span class="cross">—</span></div>
+      <div class="usp__td luna" role="cell">ゆらぎ専門</div>
+    </div>
+  </div>
+
+  <p style="font-size:18px; color:var(--text-md); line-height:1.9; margin-top:36px;">
+    知識を詰め込むのではなく、<br>
+    その日の体調や心の状態に気づき、<br>
+    "今の自分に合う整え方"を選べるようになること。<br><br>
+    だから、受講後も自然と続けられる。
+  </p>
+</section>
+
+
+<!-- diagonal: beige → white -->
+<div class="diag-up" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 8 · REASONS
+===================================================== -->
+<section class="sec reasons" aria-label="選ばれる3つの理由">
+  <div class="lbl">FEATURES</div>
+  <h2 class="ttl">選ばれる<em>3つ</em>の理由</h2>
+  <div class="rule"></div>
+
+  <div class="reason-cards">
+
+    <div class="reason-card">
+      <div class="reason-photo">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=860&q=85"
+             alt="ハーブと自然素材" loading="lazy">
+      </div>
+      <div class="reason-body">
+        <div class="reason-num">REASON 01</div>
+        <h3 class="reason-ttl">「なんとなくの不調」に<br>寄り添うプログラム</h3>
+        <p class="reason-desc">
+          一般的なハーブ講座は、ハーブの種類や効能を幅広く学びます。<br>
+          Luna Herbteaは、ゆらぎ世代の「なんとなく不調」に寄り添うことを大切にしています。<br><br>
+          疲れやすさ、眠りの浅さ、冷え、ホットフラッシュ…<br>
+          病院に行くほどではないけれど、毎日を少しつらくする不調に、
+          今のあなたに合ったハーブ習慣を身につけることができます。
+        </p>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-photo">
+        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3df1?w=860&q=85"
+             alt="ハーブティーと香り" loading="lazy">
+      </div>
+      <div class="reason-body">
+        <div class="reason-num">REASON 02</div>
+        <h3 class="reason-ttl">美味しい・香り・余韻。<br>五感で楽しむブレンド</h3>
+        <p class="reason-desc">
+          「体にいいけど、美味しくない」<br>
+          それでは、続けることが苦しくなってしまいます。<br><br>
+          Luna Herbteaでは、美味しさ、香り、余韻を大切にした
+          オリジナルブレンドづくりを学びます。<br><br>
+          毎日の一杯が、ただ飲むだけではなく
+          「自分を整える、ほっとする時間」へ変わっていきます。
+        </p>
+      </div>
+    </div>
+
+    <div class="reason-card">
+      <div class="reason-photo">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=860&q=85"
+             alt="相談・サポートのイメージ" loading="lazy">
+      </div>
+      <div class="reason-body">
+        <div class="reason-num">REASON 03</div>
+        <h3 class="reason-ttl">続けやすい<br>個別サポート</h3>
+        <p class="reason-desc">
+          毎月のグループレッスンに加え、LINE個別相談は無制限。<br><br>
+          「今の私には、どんなハーブが合う？」<br>
+          そんな日々の小さな悩みも気軽に相談できます。
+        </p>
+        <ul class="solution__list" style="margin:16px 0 0;">
+          <li>ハーブは1gから購入可能</li>
+          <li>アーカイブ動画で復習OK</li>
+          <li>自分のペースで学べる</li>
+        </ul>
+        <p style="font-size:17px; color:var(--text-md); line-height:1.8; margin-top:14px;">
+          忙しい方でも、無理なく続けられる環境を整えています。
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- diagonal: white → dark -->
+<div class="diag-down-dark" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 9 · NUMBERS
+===================================================== -->
+<section class="numbers" aria-label="数字で見る変化">
+  <div class="lbl lbl-white">RESULTS</div>
+  <h2 class="numbers-ttl">ハーブティーを始めた<br>人の変化</h2>
+  <p class="numbers-sub">受講者様アンケートより</p>
+
+  <div class="num-list">
+    <div class="num-item">
+      <div class="num-big">92<sub>%</sub></div>
+      <div class="num-desc">3ヶ月以上、セルフケア習慣を継続中</div>
+    </div>
+    <div class="num-item">
+      <div class="num-big">85<sub>%</sub></div>
+      <div class="num-desc">「日常生活が前向きに変化した」と回答</div>
+    </div>
+    <div class="num-item">
+      <div class="num-big">98<sub>%</sub></div>
+      <div class="num-desc">「もっと早く知りたかった！」の声</div>
+    </div>
+    <div class="num-item">
+      <div class="num-big">100<sub>%</sub></div>
+      <div class="num-desc">講座満足度</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- diagonal: dark → white -->
+<div class="diag-up-white" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 10 · TESTIMONIALS
+===================================================== -->
+<section class="testimonials" aria-label="受講生の声">
+  <div class="testimonials__head">
+    <div class="lbl" style="color:var(--green-dk);">VOICE</div>
+    <h2 class="ttl">実際に学んだ方の<br>声をご紹介します。</h2>
+  </div>
+
+  <div class="testimonials__scroll" role="list" aria-label="受講生の声スライド">
+
+    <div class="t-card" role="listitem">
+      <div class="t-card__qt" aria-hidden="true">"</div>
+      <p class="t-card__text">
+        ずっと「なんとなく不調」をやり過ごしていました。でも自分の不調が"言葉"になって、「今の私に必要なこと」がはっきり見えたんです。「これなら自分でもやってみよう」と前向きになれました。
+      </p>
+      <div class="t-card__author">
+        <div class="t-card__avatar">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80"
+               alt="Mさんのアバター">
+        </div>
+        <div>
+          <div class="t-card__name">M さん</div>
+          <div class="t-card__meta">40代 会社員</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card" role="listitem">
+      <div class="t-card__qt" aria-hidden="true">"</div>
+      <p class="t-card__text">
+        毎日首に湿布を貼って、週1回整体に通っていたのが、1ヶ月もしないうちに気にならなくなりました。偏頭痛も和らいで、毎日すごく前向きに過ごせています。
+      </p>
+      <div class="t-card__author">
+        <div class="t-card__avatar">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=80"
+               alt="Jさんのアバター">
+        </div>
+        <div>
+          <div class="t-card__name">J さん</div>
+          <div class="t-card__meta">50代 自営業</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card" role="listitem">
+      <div class="t-card__qt" aria-hidden="true">"</div>
+      <p class="t-card__text">
+        受講3ヶ月目くらいから「あ、変わってきた」と自分でも感じるように。その様子を見た主人もハーブティーに興味を持ってくれるように。今では一緒に楽しみながら健康に。
+      </p>
+      <div class="t-card__author">
+        <div class="t-card__avatar">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=120&q=80"
+               alt="Rさんのアバター">
+        </div>
+        <div>
+          <div class="t-card__name">R さん</div>
+          <div class="t-card__meta">40代 会社員</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card" role="listitem">
+      <div class="t-card__qt" aria-hidden="true">"</div>
+      <p class="t-card__text">
+        教わったことを、子どもと一緒にハーブティーを飲む時間にも取り入れて。自分のためのケアが、いつのまにか家族みんなの楽しみになっています。
+      </p>
+      <div class="t-card__author">
+        <div class="t-card__avatar">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&q=80"
+               alt="Kさんのアバター">
+        </div>
+        <div>
+          <div class="t-card__name">K さん</div>
+          <div class="t-card__meta">50代 主婦</div>
+        </div>
+      </div>
+      <p class="t-card__note">※すべて個人の感想であり、効果を保証するものではありません</p>
+    </div>
+
+  </div>
+
+  <p class="testimonials__hint" aria-hidden="true">← スワイプして読む →</p>
+</section>
+
+
+<!-- ====================================================
+     SEC 11 · MID CTA
+===================================================== -->
+<section class="mid-cta" id="mid-cta" aria-label="中間CTA">
+  <p class="mid-cta__lead">＼ 「このままでいいのかな…」と感じたら ／</p>
+  <h2 class="mid-cta__ttl">
+    まずは無料カウンセリングで、<br>
+    今のあなたに合う整え方を<br>
+    一緒に見つけてみませんか？
+  </h2>
+  <p class="mid-cta__note">毎月先着2名限定</p>
+
+  <a href="#final-cta" class="btn btn-white">無料カウンセリングに申し込む</a>
+
+  <div class="mid-cta__gift">
+    <p class="mid-cta__gift-ttl">SPECIAL GIFT</p>
+    <p class="mid-cta__gift-name">更年期セルフケア 無料カウンセリング特典</p>
+    <ul class="mid-cta__gift-list">
+      <li>健康美人チャート診断</li>
+      <li>今の体質・不調傾向・心の状態チェック</li>
+      <li>「今の自分」に必要な整え方がわかります</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- diagonal: green → beige -->
+<div class="diag-up-beige" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 12 · COURSE OVERVIEW
+===================================================== -->
+<section class="sec overview" aria-label="講座の全体像">
+  <div class="lbl">PROGRAM</div>
+  <h2 class="ttl">「月と巡る12ヵ月講座」<br>あなたの体と心に<br>寄り添う1年間</h2>
+
+  <div class="overview__meta">
+    <span class="overview__tag">対面 / オンライン 選べる</span>
+    <span class="overview__tag">期間：12ヶ月</span>
+  </div>
+
+  <!-- Season timeline -->
+  <div class="season-timeline" aria-label="12ヶ月のタイムライン">
+
+    <div class="season-item">
+      <div class="season-dot" aria-hidden="true">春</div>
+      <div class="season-body">
+        <div class="season-period">MONTH 1 – 3</div>
+        <h3 class="season-ttl">始まりの季節<br>自分の体を知る</h3>
+        <p class="season-desc">月ごとのテーマに沿って、季節と体の変化に合わせた整え方を身につけていきます。</p>
+      </div>
+    </div>
+
+    <div class="season-item">
+      <div class="season-dot" aria-hidden="true">夏</div>
+      <div class="season-body">
+        <div class="season-period">MONTH 4 – 6</div>
+        <h3 class="season-ttl">深める季節<br>ハーブと仲良くなる</h3>
+        <p class="season-desc">自分に合うブレンドを見つけ、日常に取り入れる習慣を育てます。</p>
+      </div>
+    </div>
+
+    <div class="season-item">
+      <div class="season-dot" aria-hidden="true">秋</div>
+      <div class="season-body">
+        <div class="season-period">MONTH 7 – 9</div>
+        <h3 class="season-ttl">実りの季節<br>変化を感じはじめる</h3>
+        <p class="season-desc">体の変化に気づき、自分で選んで整える力が育っていきます。</p>
+      </div>
+    </div>
+
+    <div class="season-item">
+      <div class="season-dot" aria-hidden="true">冬</div>
+      <div class="season-body">
+        <div class="season-period">MONTH 10 – 12</div>
+        <h3 class="season-ttl">仕上げの季節<br>一生使える習慣に</h3>
+        <p class="season-desc">
+          12ヶ月後には、どんな不調にも「まず自分で整えてみよう」と<br>思える自分になっています。
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="overview__includes">
+    <p style="font-size:13px; letter-spacing:0.2em; color:var(--green); margin-bottom:16px;">INCLUDES</p>
+    <ul class="include-list">
+      <li>毎月1回のグループレッスン</li>
+      <li>個別LINE相談 無制限</li>
+      <li>季節に合わせたハーブ</li>
+      <li>会員限定サイト</li>
+      <li>ハーブ購入サポート（1gから）</li>
+    </ul>
+  </div>
+
+  <div class="overview__notice">
+    <p>※講座の詳細・費用は無料カウンセリングで丁寧にご説明します</p>
+    <p>※認定講師制度もございます</p>
+  </div>
+</section>
+
+
+<!-- diagonal: beige → white -->
+<div class="diag-up" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 13 · FREE CONSULTATION
+===================================================== -->
+<section class="sec consult" aria-label="無料カウンセリングで得られること">
+  <div class="lbl">COUNSELING</div>
+  <h2 class="ttl">無料カウンセリングで<br>得られる<em>3つ</em>のこと</h2>
+
+  <div class="consult-items">
+
+    <div class="consult-item">
+      <div class="consult-no" aria-hidden="true">01</div>
+      <div class="consult-body">
+        <h4>自分の不調の"正体"がわかる</h4>
+        <p>なんとなく感じていた不調を、言葉にして整理できるようになります。</p>
+      </div>
+    </div>
+
+    <div class="consult-item">
+      <div class="consult-no" aria-hidden="true">02</div>
+      <div class="consult-body">
+        <h4>今の自分に合う整え方がわかる</h4>
+        <p>
+          情報に振り回されるのではなく、"今の自分に必要なこと"が明確になります。
+          健康美人チャート診断で、今の体質・不調傾向・心の状態をチェックします。
+        </p>
+      </div>
+    </div>
+
+    <div class="consult-item">
+      <div class="consult-no" aria-hidden="true">03</div>
+      <div class="consult-body">
+        <h4>今日からできる小さなセルフケアをお持ち帰り</h4>
+        <p>「何をすればいいかわからない状態」から、「これならできそう」に変わる時間になります。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="consult__note">
+    無理なご提案や講座の勧誘は行っておりません。<br>
+    「まずは相談だけ」という方も安心してご利用くださいね。
+  </div>
+</section>
+
+
+<!-- diagonal: white → beige -->
+<div class="diag-down" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 14 · INSTRUCTOR
+===================================================== -->
+<section class="sec instructor" aria-label="講師ストーリー">
+  <div class="lbl">INSTRUCTOR</div>
+
+  <h2 class="instructor__headline">
+    4ヶ月で体重は<em>7kg減</em>。<br>
+    脂肪肝もC判定→<em>A判定</em>へ。<br>
+    薬に頼る毎日から、<br>「自分を整える習慣」へ。
+  </h2>
+
+  <div class="inst__photo">
+    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=860&q=85"
+         alt="講師 栗田順子の写真" loading="lazy">
+  </div>
+
+  <!-- Before / After -->
+  <div class="story-blocks">
+    <div class="story-label" aria-hidden="true">BEFORE → AFTER</div>
+
+    <div class="story-before">
+      <div class="story-badge-before">BEFORE</div>
+      <p class="story-text">
+        以前の私は、毎日たくさんの薬を飲んで、<br>
+        不調をごまかして頑張る毎日でした。<br><br>
+        いつの間にか健康診断では 脂肪肝C判定。<br>
+        「このままじゃいけない」<br>
+        そう思いながらも、どうしたらいいかわからない。<br><br>
+        不調を我慢して、後回しにする日々が<br>続いていました。
+      </p>
+    </div>
+
+    <div class="story-arrow" aria-hidden="true">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 4L18 32M10 24L18 32L26 24" stroke="#66cdaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="story-after">
+      <div class="story-badge-after">AFTER</div>
+      <p class="story-text">
+        そんな時に出会ったのが、ハーブティーでした。<br><br>
+        ハーブティーが日常の習慣になると、<br>
+        「体のSOSに耳を傾ける時間」ができました。<br><br>
+        今では——<br>
+        20錠近く飲んでいた薬も、飲まない生活に。<br>
+        4ヶ月で体重は7kg減。<br>
+        脂肪肝もC判定 → A判定へ。<br>
+        花粉症や偏頭痛も和らぎ、<br>
+        気づけば口内炎もできなくなりました。
+      </p>
+    </div>
+  </div>
+
+  <div class="inst__body">
+    <p>
+      今、なんとなく不調を感じながらも、<br>
+      「どう整えたらいいかわからない」<br>
+      「毎日を頑張りすぎてしまう」<br>
+      そんな女性へ。
+    </p>
+    <p>
+      この講座では、ハーブティーを通して、<br>
+      自分の体とやさしく向き合う時間をお届けしています。
+    </p>
+    <p>
+      あの頃の私のように悩んでいる方が、<br>
+      少しでも笑顔で、自分らしく過ごせるように。<br><br>
+      それが、私の願いであり、<br>この講座をつくった理由です。
+    </p>
+  </div>
+
+  <div class="inst__profile">
+    <div class="inst__avatar">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&q=80"
+           alt="栗田順子の写真">
+    </div>
+    <div>
+      <h3 class="inst__name">栗田 順子</h3>
+      <div class="inst__role">Luna Herbtea&#xAE; 主宰<br>ハーブティーで健康美人に導く専門家</div>
+      <ul class="inst__creds">
+        <li>受講生数 55名</li>
+        <li>累計セッション 500名以上</li>
+        <li>ハーブティーブレンド実績 1,000件以上</li>
+        <li>受講生満足度 100%</li>
+        <li>リピート率 80%</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- diagonal: beige → white -->
+<div class="diag-up" aria-hidden="true"></div>
+
+
+<!-- ====================================================
+     SEC 15 · FAQ
+===================================================== -->
+<section class="sec faq" aria-label="よくある質問">
+  <div class="lbl">FAQ</div>
+  <h2 class="ttl">よくある<em>ご質問</em></h2>
+
+  <div class="faq-list" id="faqList">
+
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="faq-qmark" aria-hidden="true">Q</span>
+        <span class="faq-qtext">自分でブレンドできるようになりますか？</span>
+        <div class="faq-toggle" aria-hidden="true">
+          <svg viewBox="0 0 14 9" fill="none"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          ブレンドは毎月実践していきますのでご安心ください。講座は、"運転免許"と同じです。楽しく自由にドライブしたいから、まず運転免許を取りますよね。車の構造ばかり勉強していても、実際には運転できないのと同じで、ハーブも、成分や知識だけを学んでも「自分や家族のために選んで飲む」ことは意外と難しいもの。だからこそ大切なのは、まず自分が日常で使えるようになること。これを実践を通して学んでいきます。そして「なんとなく選ぶ」のではなく、"今の自分に合うものを選べる習慣"が身についていきますよ。毎日の一杯が、未来の体を整える小さな習慣にしてくださいね。
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="faq-qmark" aria-hidden="true">Q</span>
+        <span class="faq-qtext">ハーブの知識が全くなくても大丈夫ですか？</span>
+        <div class="faq-toggle" aria-hidden="true">
+          <svg viewBox="0 0 14 9" fill="none"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          むしろ、初めての方でも取り入れやすく、変化を感じやすい傾向があります。一つひとつ丁寧にお伝えしますので、ご安心ください。
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="faq-qmark" aria-hidden="true">Q</span>
+        <span class="faq-qtext">忙しくても続けられますか？</span>
+        <div class="faq-toggle" aria-hidden="true">
+          <svg viewBox="0 0 14 9" fill="none"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          はい。この講座では「頑張ること」ではなく、"日常の中で自然に続けられること"を大切にしています。特別な準備や時間を取らなくても取り入れられる内容です。
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="faq-qmark" aria-hidden="true">Q</span>
+        <span class="faq-qtext">どれくらいで変化を感じますか？</span>
+        <div class="faq-toggle" aria-hidden="true">
+          <svg viewBox="0 0 14 9" fill="none"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          感じ方には個人差がありますが、早い方では日常の中での"ちょっとした変化"に気づかれる方もいらっしゃいます。少しずつ整えていくことを大切にしています。
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <span class="faq-qmark" aria-hidden="true">Q</span>
+        <span class="faq-qtext">無料カウンセリングではどんなことをしますか？</span>
+        <div class="faq-toggle" aria-hidden="true">
+          <svg viewBox="0 0 14 9" fill="none"><path d="M1 1L7 8L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          現在のお悩みや体の状態についてお伺いしながら、どのように整えていけそうかを一緒に整理していきます。無理なご提案や勧誘は行っておりませんので、「まずは相談だけ」という方も安心してご利用くださいね。
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ====================================================
+     SEC 16 · FINAL CTA
+===================================================== -->
+<section class="final-cta" id="final-cta" aria-label="最終CTA">
+  <div class="final-cta__bg" role="img" aria-label="ハーブティーの背景写真"></div>
+  <div class="final-cta__overlay"></div>
+
+  <div class="final-cta__body">
+    <div class="lbl" style="color:var(--green-dk); text-align:center;">START TODAY</div>
+
+    <h2 class="final-cta__ttl">
+      「このままでいいのかな…」<br>
+      その気持ちが、<br>変わるきっかけです。
+    </h2>
+
+    <p class="final-cta__body-txt">
+      少し意識を向けるだけで、体はちゃんと応えてくれます。<br><br>
+      講座を受ける受けないの前にまずは無料カウンセリングで、<br>今のあなたの状態を一緒に整理してみませんか？
+    </p>
+
+    <div class="final-cta__gift">
+      <p class="final-cta__gift-name">更年期セルフケア 無料カウンセリング特典</p>
+      <ul class="final-cta__gift-list">
+        <li>健康美人チャート診断</li>
+        <li>今の体質・不調傾向・心の状態チェック</li>
+        <li>「今の自分」に必要な整え方</li>
+      </ul>
+    </div>
+
+    <p class="final-cta__limit">毎月2名限定 ／ 満席になり次第終了</p>
+    <p class="final-cta__detail">1時間 ／ Zoom or 対面</p>
+
+    <a href="#" class="btn btn-pink" style="margin-top:28px;">
+      ＼ 無料カウンセリングに申し込む ／
+    </a>
+  </div>
+</section>
+
+
+<!-- ====================================================
+     FOOTER
+===================================================== -->
+<footer class="footer">
+  <div class="footer__brand">Luna Herbtea&#xAE;</div>
+  <p>
+    <a href="#">特定商取引法に基づく表記</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">お問い合わせ</a>
+  </p>
+  <p style="margin-top:16px;">© 2026 Luna Herbtea. All rights reserved.</p>
+</footer>
+
+</div><!-- /.lp -->
+
+
+<!-- ====================================================
+     STICKY BOTTOM CTA
+===================================================== -->
+<div class="sticky-cta hidden" id="stickyCta" aria-label="スクロール追従CTA">
+  <div class="sticky-text">
+    <div class="sticky-lbl">毎月2名限定</div>
+    <div class="sticky-name">更年期セルフケア<br>無料カウンセリング</div>
+  </div>
+  <a href="#final-cta" class="btn btn-pink">無料で相談する</a>
+</div>
+
+
+<script>
+  /* FAQ Accordion */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const ans = item.querySelector('.faq-a');
+
+    function toggle() {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = '0';
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    btn.addEventListener('click', toggle);
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+
+  /* Sticky CTA */
+  const stickyCta = document.getElementById('stickyCta');
+  const hero      = document.querySelector('.hero');
+  const finalSec  = document.querySelector('.final-cta');
+
+  function updateSticky() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    const finalTop   = finalSec.getBoundingClientRect().top;
+    if (heroBottom > 0 || finalTop < window.innerHeight * 0.85) {
+      stickyCta.classList.add('hidden');
+    } else {
+      stickyCta.classList.remove('hidden');
+    }
+  }
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  updateSticky();
+
+  /* Smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const target = id === '#' ? null : document.querySelector(id);
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
