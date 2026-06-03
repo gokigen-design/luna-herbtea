@@ -42,11 +42,11 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(180deg, rgba(255,255,255,0.68), rgba(246,240,233,0.82)),
-        url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&q=70');
+        linear-gradient(180deg, rgba(255,255,255,0.7), rgba(246,240,233,0.86)),
+        url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1920&q=70');
       background-size: cover;
       background-position: center;
-      filter: saturate(0.78) brightness(1.08);
+      filter: saturate(0.82) brightness(1.08);
       z-index: 0;
     }
 
@@ -164,6 +164,12 @@
       height: 56px;
       background: var(--beige-lt);
       clip-path: polygon(0 0, 100% 100%, 0 100%);
+      margin-top: -1px;
+    }
+    .risk-to-causes {
+      height: 18px;
+      background: #e8e6e3;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
       margin-top: -1px;
     }
 
@@ -350,9 +356,14 @@
     }
 
     .risk__headline {
-      background: var(--white);
-      padding: 44px 34px 48px;
+      position: relative;
+      padding: 76px 34px 80px;
       text-align: center;
+      background-image:
+        linear-gradient(180deg, rgba(36,36,36,0.5), rgba(36,36,36,0.64)),
+        url('https://images.unsplash.com/photo-1541199249251-f713e6145474?w=900&q=82');
+      background-size: cover;
+      background-position: center 35%;
     }
 
     .risk__title {
@@ -361,18 +372,19 @@
       font-weight: 500;
       line-height: 1.75;
       letter-spacing: 0.04em;
-      color: var(--text);
+      color: var(--white);
+      text-shadow: 0 3px 16px rgba(0,0,0,0.46);
     }
 
     .risk__title-em {
-      color: var(--pink);
+      color: #f1b3c9;
       font-size: 1.28em;
       font-weight: 700;
     }
 
     .risk__body {
       background: var(--white);
-      padding: 0 36px 44px;
+      padding: 38px 36px 46px;
       font-size: 17px;
       color: var(--text);
       line-height: 2.0;
@@ -381,7 +393,7 @@
 
     .risk__diagonal {
       position: relative;
-      height: 42px;
+      height: 34px;
       background: var(--white);
       overflow: hidden;
     }
@@ -399,13 +411,13 @@
 
     .risk__message {
       position: relative;
-      min-height: 430px;
-      padding: 72px 30px 56px;
+      min-height: 390px;
+      padding: 54px 30px 50px;
       background-image:
-        linear-gradient(180deg, rgba(44, 67, 53, 0.12), rgba(44, 67, 53, 0.42)),
-        url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&q=85');
+        linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.82)),
+        url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=900&q=84');
       background-size: cover;
-      background-position: center top;
+      background-position: center;
       display: flex;
       align-items: flex-start;
     }
@@ -413,9 +425,9 @@
     .risk__message-box {
       width: 100%;
       padding: 32px 24px 34px;
-      background: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.9);
       border: 1.5px solid rgba(255,255,255,0.88);
-      box-shadow: 0 18px 40px rgba(44, 67, 53, 0.18);
+      box-shadow: 0 18px 40px rgba(74, 96, 86, 0.14);
       backdrop-filter: blur(3px);
       text-align: center;
     }
@@ -438,7 +450,10 @@
     /* ============================================================
        SEC 4 · CAUSES — 番号大＋タイトル大＋文章＋写真の縦積み
     ============================================================ */
-    .causes { background: #e8e6e3; }  /* 薄いグレー背景 */
+    .causes {
+      background: #e8e6e3;
+      padding-top: 42px;
+    }  /* 薄いグレー背景 */
 
     .causes__lead {
       font-size: 18px;
@@ -450,15 +465,16 @@
 
     .cause-diagram {
       position: relative;
-      margin: 30px -10px 42px;
-      padding: 22px 0 28px;
+      margin: 30px -24px 38px;
+      padding: 0;
     }
 
-    .cause-diagram__svg {
+    .cause-diagram__svg,
+    .cause-diagram__img {
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 14px 24px rgba(54, 77, 64, 0.12));
+      box-shadow: 0 18px 34px rgba(74, 96, 86, 0.12);
     }
 
     .cause-diagram__caption {
@@ -466,7 +482,7 @@
       line-height: 1.9;
       color: var(--text-md);
       text-align: center;
-      margin: 10px 16px 0;
+      margin: 18px 16px 0;
     }
 
     .diagram-orbit {
@@ -533,13 +549,13 @@
       display: flex;
       flex-direction: column;
       gap: 22px;
-      padding: 0 24px 8px;
+      padding: 0;
     }
 
     /* 縦積みブロック */
     .cause-card {
       background: rgba(255,255,255,0.94);
-      padding: 26px 18px 22px;
+      padding: 26px 16px 22px;
       border: 1px solid rgba(255,255,255,0.84);
       box-shadow: 0 16px 34px rgba(74, 96, 86, 0.1);
       display: flex;
@@ -572,7 +588,7 @@
 
     .cause-title {
       font-family: var(--ff-min);
-      font-size: 24px;
+      font-size: 23px;
       line-height: 1.4;
       color: var(--text);
       padding-right: 0;
@@ -624,11 +640,13 @@
       inset: 0;
       z-index: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.9)),
+        linear-gradient(rgba(255,255,255,0.84), rgba(255,255,255,0.9)),
+        url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=900&q=78'),
         linear-gradient(90deg, rgba(102,205,170,0.08) 1px, transparent 1px),
         linear-gradient(0deg, rgba(102,205,170,0.08) 1px, transparent 1px);
-      background-size: auto, 44px 44px, 44px 44px;
+      background-size: auto, cover, 44px 44px, 44px 44px;
       background-position: center;
+      filter: saturate(0.86) brightness(1.05);
     }
 
     .solution__overlay { display: none; } /* オーバーレイ不要 */
@@ -705,6 +723,32 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(74,96,86,0.18));
+    }
+
+    .solution__circle-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 28px 0 30px;
+    }
+    .solution__circle {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      border: 1.5px solid rgba(102,205,170,0.46);
+      box-shadow: 0 14px 28px rgba(74, 96, 86, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+      font-family: var(--ff-min);
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      padding: 10px;
     }
 
     .solution__list { list-style: none; margin: 20px 0; }
@@ -888,9 +932,25 @@
     ============================================================ */
     .reasons { background: var(--white); }
 
-    .reason-cards { display: flex; flex-direction: column; gap: 40px; margin-top: 48px; }
+    .reason-cards { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
 
-    .reason-card { }
+    .reason-card {
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(102,205,170,0.18);
+      box-shadow: 0 16px 34px rgba(74, 96, 86, 0.1);
+      padding: 18px;
+      opacity: 0;
+      transform: translateY(26px);
+      transition:
+        opacity 700ms ease,
+        transform 760ms cubic-bezier(0.18, 0.82, 0.28, 1);
+    }
+    .reason-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reason-card:nth-child(2).is-visible { transition-delay: 90ms; }
+    .reason-card:nth-child(3).is-visible { transition-delay: 160ms; }
 
     .reason-photo {
       height: 220px;
@@ -904,7 +964,7 @@
     }
     .reason-card:hover .reason-photo img { transform: scale(1.04); }
 
-    .reason-body { padding: 28px 0 0; }
+    .reason-body { padding: 24px 0 0; }
 
     .reason-num {
       font-size: 10px;
@@ -926,10 +986,7 @@
     }
 
     /* horizontal rule between cards */
-    .reason-card + .reason-card {
-      border-top: 1px solid var(--beige);
-      padding-top: 40px;
-    }
+    .reason-card + .reason-card { border-top: none; }
 
 
     /* ============================================================
@@ -1000,6 +1057,14 @@
     }
     .num-item--secondary {
       background: rgba(255,255,255,0.95);
+    }
+    .num-item--session {
+      background: rgba(255,255,255,0.94);
+      border-color: rgba(102,205,170,0.72);
+    }
+    .num-item--session .num-big {
+      color: var(--green-dk);
+      font-size: 72px;
     }
     .num-kicker {
       font-family: var(--ff-min);
@@ -1221,7 +1286,8 @@
     .testimonials__hint { display: none; }
 
     @media (prefers-reduced-motion: reduce) {
-      .t-card {
+      .t-card,
+      .reason-card {
         opacity: 1;
         transform: none;
         transition: none;
@@ -2134,55 +2200,20 @@
 </section>
 
 
-<!-- diagonal: beige → white -->
-<div class="diag-up" aria-hidden="true"></div>
+<!-- soft transition: risk → causes -->
+<div class="risk-to-causes" aria-hidden="true"></div>
 
 
 <!-- ====================================================
      SEC 4 · CAUSES
 ===================================================== -->
 <section class="sec causes" aria-label="3つの原因">
-  <div class="lbl">ROOT CAUSE</div>
   <h2 class="ttl">その不調、<br>原因は<em>３つ</em>あります。</h2>
   <p class="causes__lead">「なんとなくの不調」には、主に3つの要因が重なっています。</p>
 
   <div class="cause-diagram" aria-label="更年期の不調を取り巻く3つの原因の図解">
-    <svg class="cause-diagram__svg" viewBox="0 0 360 360" role="img" aria-labelledby="causeDiagramTitle causeDiagramDesc">
-      <title id="causeDiagramTitle">女性を取り巻く3つの不調要因</title>
-      <desc id="causeDiagramDesc">中央の女性の周囲に、ホルモンバランスの変化、自律神経の乱れ、巡りの低下の3つの丸が配置されています。</desc>
-
-      <circle class="diagram-orbit" cx="180" cy="184" r="112" />
-      <line class="diagram-link" x1="180" y1="162" x2="180" y2="78" />
-      <line class="diagram-link" x1="156" y1="198" x2="86" y2="248" />
-      <line class="diagram-link" x1="204" y1="198" x2="274" y2="248" />
-
-      <circle class="diagram-person" cx="180" cy="184" r="58" />
-      <path class="diagram-person-line" d="M180 132c16 0 28 13 28 29 0 13-7 23-18 28" />
-      <path class="diagram-person-line" d="M180 132c-16 0-28 13-28 29 0 13 7 23 18 28" />
-      <path class="diagram-person-line" d="M151 235c7-25 18-38 29-38s22 13 29 38" />
-      <path class="diagram-person-accent" d="M166 172c9 8 19 8 28 0" />
-
-      <circle class="diagram-circle diagram-circle--pink" cx="180" cy="68" r="54" />
-      <text class="diagram-label-small" x="180" y="48">01</text>
-      <text class="diagram-label" x="180" y="68">
-        <tspan x="180" dy="-5">ホルモン</tspan>
-        <tspan x="180" dy="23">バランスの変化</tspan>
-      </text>
-
-      <circle class="diagram-circle diagram-circle--green" cx="78" cy="260" r="56" />
-      <text class="diagram-label-small" x="78" y="238">02</text>
-      <text class="diagram-label" x="78" y="260">
-        <tspan x="78" dy="-5">自律神経</tspan>
-        <tspan x="78" dy="23">の乱れ</tspan>
-      </text>
-
-      <circle class="diagram-circle diagram-circle--beige" cx="282" cy="260" r="56" />
-      <text class="diagram-label-small" x="282" y="238">03</text>
-      <text class="diagram-label" x="282" y="260">
-        <tspan x="282" dy="-5">巡り</tspan>
-        <tspan x="282" dy="23">の低下</tspan>
-      </text>
-    </svg>
+    <img class="cause-diagram__img" src="assets/cause-diagram.png"
+         alt="その不調の原因。01 ホルモンバランスの変化、02 自律神経の乱れ、03 巡りの低下">
     <p class="cause-diagram__caption">
       ひとつだけではなく、複数の変化が重なって<br>
       心と体のサインとして現れます。
@@ -2262,18 +2293,17 @@
   <div class="solution__overlay" aria-hidden="true"></div>
 
   <div class="solution__inner">
-    <div class="lbl">SOLUTION</div>
     <h2 class="ttl">その3つを、自然の力で整える方法、<br><em>それがハーブティー。</em></h2>
 
     <p style="font-size:18px; color:var(--text); line-height:1.9; margin-bottom:24px; text-shadow:0 1px 8px rgba(255,255,255,0.9);">
       ハーブティーには、心と体にやさしく働きかける力があります。
     </p>
 
-    <ul class="solution__list">
-      <li>女性のゆらぎに</li>
-      <li>リラックスタイム</li>
-      <li>美容やセルフケア習慣</li>
-    </ul>
+    <div class="solution__circle-list" aria-label="ハーブティーが寄り添う場面">
+      <div class="solution__circle">女性の<br>ゆらぎに</div>
+      <div class="solution__circle">リラックス<br>タイムに</div>
+      <div class="solution__circle">美容や<br>セルフケア習慣に</div>
+    </div>
 
     <p style="font-size:18px; color:var(--text); line-height:1.9; margin-bottom:16px; text-shadow:0 1px 8px rgba(255,255,255,0.9);">
       など、目的や気分に合わせて美味しくブレンド。
@@ -2423,7 +2453,7 @@
 
     <div class="reason-card">
       <div class="reason-photo">
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=860&q=85"
+        <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=860&q=85"
              alt="ハーブと自然素材" loading="lazy">
       </div>
       <div class="reason-body">
@@ -2441,7 +2471,7 @@
 
     <div class="reason-card">
       <div class="reason-photo">
-        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3df1?w=860&q=85"
+        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=860&q=85"
              alt="ハーブティーと香り" loading="lazy">
       </div>
       <div class="reason-body">
@@ -2486,15 +2516,10 @@
 </section>
 
 
-<!-- diagonal: white → dark -->
-<div class="diag-down-dark" aria-hidden="true"></div>
-
-
 <!-- ====================================================
      SEC 9 · NUMBERS
 ===================================================== -->
 <section class="numbers" aria-label="数字で見る変化">
-  <div class="lbl">RESULTS</div>
   <h2 class="numbers-ttl">ハーブティーを始めた<br>人の変化</h2>
   <p class="numbers-sub">数字で見える安心感</p>
 
@@ -2511,9 +2536,10 @@
       <div class="num-desc">一人ひとりの状態に合わせたブレンド提案</div>
     </div>
 
-    <div class="num-note-card">
-      <div class="num-note-card__label">SESSION</div>
-      <div class="num-note-card__main">累計セッション<br><strong>500</strong>名以上</div>
+    <div class="num-item num-item--session">
+      <div class="num-kicker">累計<br>セッション</div>
+      <div class="num-big">500<sub>名+</sub></div>
+      <div class="num-desc">一人ひとりに寄り添う相談実績</div>
     </div>
   </div>
 
@@ -3122,6 +3148,23 @@
     voiceCards.forEach(card => voiceObserver.observe(card));
   } else {
     voiceCards.forEach(card => card.classList.add('is-visible'));
+  }
+
+  /* Reason cards reveal */
+  const reasonCards = document.querySelectorAll('.reason-card');
+  if ('IntersectionObserver' in window) {
+    const reasonObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          reasonObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+    reasonCards.forEach(card => reasonObserver.observe(card));
+  } else {
+    reasonCards.forEach(card => card.classList.add('is-visible'));
   }
 
   /* Smooth scroll */
