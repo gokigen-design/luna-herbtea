@@ -32,7 +32,7 @@
     body {
       font-family: var(--ff-sans);
       color: var(--text);
-      background: #c8b89a;
+      background: #eef5e8;
       min-height: 100vh;
     }
 
@@ -41,10 +41,12 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&q=40');
+      background-image:
+        linear-gradient(180deg, rgba(255,255,255,0.68), rgba(246,240,233,0.82)),
+        url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&q=70');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.25) saturate(0.5);
+      filter: saturate(0.78) brightness(1.08);
       z-index: 0;
     }
 
@@ -169,131 +171,41 @@
     /* ============================================================
        SEC 1 · HERO (FV)
     ============================================================ */
-    /* ---- HERO (redesigned) ---- */
     .hero {
       background: #faf5ef;
-      min-height: 100svh;
+      min-height: 0;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
 
-    /* 上段：左テキスト / 右写真 */
-    .hero__split {
-      display: grid;
-      grid-template-columns: 45% 55%;
-      height: 52svh;
-      min-height: 280px;
-    }
-
-    .hero__text-col {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 28px 10px 20px 24px;
-    }
-
-    .hero__lbl {
-      font-family: var(--ff-min);
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      color: var(--green-dk);
-      margin-bottom: 14px;
-    }
-
-    .hero__main {
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-
-    .hero__sub {
-      font-size: 12px;
-      color: var(--text-md);
-      line-height: 1.8;
-    }
-
-    .hero__photo-col {
+    .hero__image {
       overflow: hidden;
       position: relative;
+      flex: 0 0 auto;
     }
-    .hero__photo-col img {
+    .hero__image img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
     }
-    .hero__photo-col::after {
+    .hero__image::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 48px;
-      background: linear-gradient(to top, #faf5ef, transparent);
+      height: 110px;
+      background: linear-gradient(to top, rgba(250,245,239,0.9), transparent);
+      pointer-events: none;
     }
 
-    /* 中段：ブランド名 */
-    .hero__brand-center {
-      text-align: center;
-      padding: 14px 20px 10px;
-      border-top: 1px solid rgba(102,205,170,0.2);
-    }
-    .hero__brand-script {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-style: italic;
-      font-size: 20px;
-      color: var(--green-dk);
-      letter-spacing: 0.1em;
-      margin-bottom: 2px;
-    }
-    .hero__brand-course {
-      font-family: var(--ff-min);
-      font-size: 12px;
-      letter-spacing: 0.25em;
-      color: var(--text-md);
-    }
-
-    /* バッジ3つ */
-    .hero__badges {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
-    }
-    .hero__badge-c {
-      width: 86px;
-      height: 86px;
-      border-radius: 50%;
-      background: white;
-      border: 1.5px solid rgba(102,205,170,0.45);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 1px;
-    }
-    .bdc-lbl {
-      font-size: 9px;
-      color: var(--text-lt);
-      letter-spacing: 0.03em;
-      line-height: 1.3;
-    }
-    .bdc-num {
-      font-family: var(--ff-sans);
-      font-size: 19px;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.15;
-    }
-    .bdc-unit {
-      font-size: 9px;
-      color: var(--text-md);
-    }
-
-    /* 下段：注記 + CTA */
     .hero__bottom {
-      padding: 8px 24px 24px;
+      position: relative;
+      z-index: 2;
+      padding: 14px 24px 24px;
       text-align: center;
+      background: linear-gradient(180deg, rgba(250,245,239,0.92), #faf5ef 64%);
+      margin-top: -14px;
     }
     .hero__note {
       font-size: 11px;
@@ -394,13 +306,17 @@
 
     .sympathy__close {
       font-family: var(--ff-min);
-      font-size: 20px;
-      line-height: 1.9;
+      font-size: 18px;
+      line-height: 1.8;
       color: #fff;
-      padding: 8px 20px 0;
+      padding: 8px 10px 0;
       text-shadow:
         0 0 20px rgba(0,0,0,0.7),
         0 2px 5px rgba(0,0,0,0.5);
+    }
+    .sympathy__close-line {
+      display: inline-block;
+      white-space: nowrap;
     }
 
     .sympathy__photo { display: none; }
@@ -435,17 +351,8 @@
 
     .risk__headline {
       background: var(--white);
-      padding: 66px 34px 58px;
+      padding: 44px 34px 48px;
       text-align: center;
-    }
-
-    .risk__label {
-      font-family: var(--ff-sans);
-      font-size: 11px;
-      letter-spacing: 0.32em;
-      color: var(--green);
-      margin-bottom: 18px;
-      text-transform: uppercase;
     }
 
     .risk__title {
@@ -622,24 +529,30 @@
       stroke-linecap: round;
     }
 
-    .cause-cards { display: flex; flex-direction: column; gap: 0; }
+    .cause-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding: 0 24px 8px;
+    }
 
     /* 縦積みブロック */
     .cause-card {
-      background: #e8e6e3;
-      padding: 36px 0 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      display: block; /* ← 縦積みに変更 */
+      background: rgba(255,255,255,0.94);
+      padding: 26px 18px 22px;
+      border: 1px solid rgba(255,255,255,0.84);
+      box-shadow: 0 16px 34px rgba(74, 96, 86, 0.1);
+      display: flex;
+      flex-direction: column;
     }
-    .cause-card:last-child { border-bottom: none; }
 
     /* ヘッダー：番号＋タイトル */
     .cause-card__header {
       display: flex;
       align-items: baseline;
       gap: 12px;
-      padding: 0 36px;
-      margin-bottom: 14px;
+      padding: 0;
+      margin-bottom: 18px;
     }
 
     /* 大きな番号 */
@@ -667,11 +580,11 @@
     }
 
     .cause-desc {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--text-md);
       line-height: 1.85;
-      padding: 0 36px;
-      margin-bottom: 24px;
+      padding: 0;
+      margin-top: 18px;
     }
 
     /* 写真（ブロック下部に全幅） */
@@ -690,7 +603,10 @@
 
     /* 旧スタイルは非表示 */
     .cause-num { display: none; }
-    .cause-card__body { display: contents; } /* 中のCSS引継ぎ用 */
+    .cause-card__body {
+      display: flex;
+      flex-direction: column;
+    }
 
 
     /* ============================================================
@@ -706,6 +622,7 @@
     .solution__bg {
       position: absolute;
       inset: 0;
+      z-index: 0;
       background-image:
         linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.9)),
         linear-gradient(90deg, rgba(102,205,170,0.08) 1px, transparent 1px),
@@ -725,6 +642,7 @@
 
     .solution__ribbon {
       position: relative;
+      z-index: 3;
       height: 84px;
       background:
         linear-gradient(180deg, rgba(74, 96, 86, 0.08), rgba(74, 96, 86, 0)),
@@ -735,10 +653,10 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: #52746d;
+      background: #f8f4ea;
       clip-path: polygon(0 0, 100% 0, 50% 96%);
-      box-shadow: inset 0 -18px 30px rgba(255,255,255,0.12);
-      opacity: 0.96;
+      box-shadow: inset 0 -14px 28px rgba(102,205,170,0.16);
+      opacity: 1;
     }
     .solution__ribbon::after {
       content: 'そこで';
@@ -746,12 +664,13 @@
       left: 50%;
       top: 17px;
       transform: translateX(-50%);
-      color: var(--white);
+      color: #3f7e69;
       font-family: var(--ff-min);
       font-size: 26px;
+      font-weight: 600;
       letter-spacing: 0.12em;
       white-space: nowrap;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.24);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.9);
     }
 
     .solution__accent {
@@ -2119,44 +2038,9 @@
 ===================================================== -->
 <section class="hero" aria-label="ファーストビュー">
 
-  <!-- 上段：左コピー / 右写真 -->
-  <div class="hero__split">
-    <div class="hero__text-col">
-      <span class="hero__lbl">Luna Herbtea&#xAE;</span>
-      <h1 class="hero__main">
-        「なんとなく<br>不調」を、<br>自分で整えられる<br>わたしへ。
-      </h1>
-      <p class="hero__sub">
-        薬に頼る前に、<br>ハーブティーで<br>心と体を整える<br>12ヶ月の習慣づくり
-      </p>
-    </div>
-    <!-- ※ 写真差し替え時は src を変更してください -->
-    <div class="hero__photo-col">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=85"
-           alt="女性がハーブティーを楽しむ様子">
-    </div>
-  </div>
-
-  <!-- 中段：ブランド名 -->
-  <div class="hero__brand-center">
-    <p class="hero__brand-script">Luna Herbtea</p>
-    <p class="hero__brand-course">更年期セルフケア講座</p>
-  </div>
-
-  <!-- バッジ3つ -->
-  <div class="hero__badges">
-    <div class="hero__badge-c">
-      <span class="bdc-lbl">満足度</span>
-      <span class="bdc-num">100<span class="bdc-unit">%</span></span>
-    </div>
-    <div class="hero__badge-c">
-      <span class="bdc-lbl">累計<br>セッション</span>
-      <span class="bdc-num">500<span class="bdc-unit">名+</span></span>
-    </div>
-    <div class="hero__badge-c">
-      <span class="bdc-lbl">ブレンド<br>実績</span>
-      <span class="bdc-num">1,000<span class="bdc-unit">件+</span></span>
-    </div>
+  <div class="hero__image">
+    <img src="assets/hero-luna-herbtea.png"
+         alt="「なんとなく不調」を自分で整えられるわたしへ。薬に頼る前に、ハーブティーで心と体を整える12ヶ月の習慣づくり Luna Herbtea">
   </div>
 
   <!-- 注記 + CTAボタン -->
@@ -2201,8 +2085,9 @@
     </ul>
 
     <p class="sympathy__close">
-      「歳のせいかな」「みんなそうだよね」<br>
-      そう思って、やり過ごしていませんか？
+      <span class="sympathy__close-line">「歳のせいかな」</span>
+      <span class="sympathy__close-line">「みんなそうだよね」</span><br>
+      <span class="sympathy__close-line">そう思って、やり過ごしていませんか？</span>
     </p>
   </div>
 </section>
@@ -2219,7 +2104,6 @@
 ===================================================== -->
 <section class="sec risk" aria-label="放置リスク">
   <div class="risk__headline">
-    <div class="risk__label">IMPORTANT</div>
     <h2 class="risk__title">
       その<br>
       <span class="risk__title-em">「なんとなく」</span>を<br>
@@ -2309,14 +2193,14 @@
 
     <!-- 01 ホルモンバランス -->
     <div class="cause-card">
-      <div class="cause-card__img">
-        <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=220&q=80"
-             alt="ホルモンバランスのイメージ" loading="lazy">
-      </div>
       <div class="cause-card__body">
         <div class="cause-card__header">
           <span class="cause-chip">01</span>
           <h3 class="cause-title">ホルモンバランスの変化</h3>
+        </div>
+        <div class="cause-card__img">
+          <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=760&q=85"
+               alt="ホルモンバランスのイメージ" loading="lazy">
         </div>
         <p class="cause-desc">
           女性ホルモン（エストロゲン）は年齢とともにゆるやかに変化。
@@ -2327,14 +2211,14 @@
 
     <!-- 02 自律神経 -->
     <div class="cause-card">
-      <div class="cause-card__img">
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=220&q=80"
-             alt="植物 自律神経のイメージ" loading="lazy">
-      </div>
       <div class="cause-card__body">
         <div class="cause-card__header">
           <span class="cause-chip">02</span>
           <h3 class="cause-title">自律神経の<br>バランスの乱れ</h3>
+        </div>
+        <div class="cause-card__img">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=760&q=85"
+               alt="植物 自律神経のイメージ" loading="lazy">
         </div>
         <p class="cause-desc">
           交感・副交感神経のスイッチがうまく切り替わらなくなる。
@@ -2345,14 +2229,14 @@
 
     <!-- 03 巡り -->
     <div class="cause-card">
-      <div class="cause-card__img">
-        <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=220&q=80"
-             alt="巡りのイメージ" loading="lazy">
-      </div>
       <div class="cause-card__body">
         <div class="cause-card__header">
           <span class="cause-chip">03</span>
           <h3 class="cause-title">巡り（気・血・水）の低下</h3>
+        </div>
+        <div class="cause-card__img">
+          <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=760&q=85"
+               alt="巡りのイメージ" loading="lazy">
         </div>
         <p class="cause-desc">
           40代以降、毛細血管は最大で約40%が消失。
