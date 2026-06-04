@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Herbtea LP｜デザインリファレンスまとめ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#66cdaa; --green-dk:#4aae8c; --beige:#e9dacb; --beige-lt:#f6f0e9;
+    --pink:#db7093; --text:#333; --text-md:#666; --text-lt:#999;
+    --min:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);color:var(--text);background:#faf6f0;line-height:1.8;}
+  .wrap{max-width:760px;margin:0 auto;background:#fff;}
+
+  header{background:var(--green);color:#fff;padding:44px 28px 38px;text-align:center;}
+  header .brand{font-family:Georgia,serif;font-style:italic;font-size:20px;letter-spacing:.1em;opacity:.9;}
+  header h1{font-family:var(--min);font-size:26px;margin:10px 0 8px;line-height:1.5;}
+  header p{font-size:14px;opacity:.9;}
+
+  .links{padding:28px;background:var(--beige-lt);display:flex;flex-direction:column;gap:14px;}
+  .link-card{background:#fff;border:1px solid var(--beige);padding:18px 20px;display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--text);transition:.2s;}
+  .link-card:hover{border-color:var(--green);}
+  .link-card .lbl{font-size:12px;letter-spacing:.1em;color:var(--green-dk);}
+  .link-card .ttl{font-family:var(--min);font-size:18px;}
+  .link-card .url{font-size:13px;color:var(--text-lt);word-break:break-all;}
+
+  .intro{padding:32px 28px;border-bottom:1px solid var(--beige);}
+  .intro h2{font-family:var(--min);font-size:20px;margin-bottom:12px;}
+  .intro p{font-size:15px;color:var(--text-md);}
+
+  .palette{display:flex;gap:0;margin:18px 0 0;border:1px solid var(--beige);}
+  .sw{flex:1;height:64px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font-size:10px;}
+  .sw.g{background:var(--green);color:#fff;}
+  .sw.b{background:var(--beige);color:#7a6a55;}
+  .sw.p{background:var(--pink);color:#fff;}
+  .sw.w{background:#fff;color:#999;border-left:1px solid #eee;}
+
+  .sec{padding:28px;border-bottom:1px solid var(--beige);}
+  .sec-no{display:inline-block;background:var(--pink);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:2px;margin-bottom:10px;}
+  .sec h3{font-family:var(--min);font-size:19px;margin-bottom:14px;}
+  .row{display:flex;gap:8px;margin-bottom:8px;font-size:14px;}
+  .row .k{flex-shrink:0;width:88px;color:var(--green-dk);font-weight:500;}
+  .row .v{flex:1;color:var(--text-md);}
+  .status{display:inline-block;font-size:11px;padding:2px 10px;border-radius:10px;margin-top:6px;}
+  .done{background:#e6f5ee;color:var(--green-dk);}
+  .wip{background:#fdeef3;color:var(--pink);}
+
+  footer{padding:32px 28px 48px;text-align:center;font-size:12px;color:var(--text-lt);}
+  footer .note{background:var(--beige-lt);padding:16px;border-radius:4px;margin-bottom:20px;font-size:13px;color:var(--text-md);text-align:left;line-height:1.9;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">Luna Herbtea</div>
+    <h1>更年期セルフケア講座 LP<br>デザインリファレンスまとめ</h1>
+    <p>制作進捗・参考デザイン・適用方針</p>
+  </header>
+
+  <!-- リンク集 -->
+  <div class="links">
+    <a class="link-card" href="https://gokigen-design.github.io/luna-herbtea/" target="_blank" rel="noopener">
+      <span class="lbl">▶ 制作中のLP（本番プレビュー）</span>
+      <span class="ttl">Luna Herbtea LP</span>
+      <span class="url">gokigen-design.github.io/luna-herbtea/</span>
+    </a>
+  </div>
+
+  <!-- イントロ -->
+  <div class="intro">
+    <h2>デザインの考え方</h2>
+    <p>
+      BOTANISTのような「余白・写真主役・雑誌的レイアウト」を踏襲。
+      40〜60代女性向けに、文字を大きく・上品で読みやすく。
+      セクションの区切りは横線ではなく「斜め・矢印・余白・写真の重なり」で
+      単調にならないよう設計しています。
+    </p>
+    <div class="palette" aria-label="カラーパレット">
+      <div class="sw g">#66cdaa</div>
+      <div class="sw b">#e9dacb</div>
+      <div class="sw p">#db7093</div>
+      <div class="sw w">#ffffff</div>
+    </div>
+  </div>
+
+  <!-- セクション別リファレンス -->
+  <div class="sec">
+    <span class="sec-no">Section 1</span>
+    <h3>ファーストビュー</h3>
+    <div class="row"><span class="k">参考</span><span class="v">左にコピー／右に女性写真／中央にブランド名／丸バッジ3つ／CTA</span></div>
+    <div class="row"><span class="k">適用方針</span><span class="v">スマホ1画面にCTAまで収まる分割レイアウト。キャッチの改行位置を調整</span></div>
+    <span class="status done">反映済み</span>
+  </div>
+
+  <div class="sec">
+    <span class="sec-no">Section 2</span>
+    <h3>共感パート（なんとなく不調）</h3>
+    <div class="row"><span class="k">参考</span><span class="v">グレーがかった女性写真を背景に、グローのシャドー</span></div>
+    <div class="row"><span class="k">適用方針</span><span class="v">背景写真＋グレーオーバーレイ。チェックリストは白カード＋グローで視認性確保</span></div>
+    <span class="status done">反映済み</span>
+  </div>
+
+  <div class="sec">
+    <span class="sec-no">Section 3</span>
+    <h3>放置リスク</h3>
+    <div class="row"><span class="k">参考</span><span class="v">読み物スタイル。途中に悩む女性の写真</span></div>
+    <div class="row"><span class="k">適用方針</span><span class="v">緑の縦線を廃止し中央揃え。「サイン」「自分で整える」をピンクで強調</span></div>
+    <span class="status done">反映済み</span>
+  </div>
+
+  <div class="sec">
+    <span class="sec-no">Section 4</span>
+    <h3>不調の原因（3つ）</h3>
+    <div class="row"><span class="k">参考</span><span class="v">大きな番号→大きな見出し→文章→その下に画像の縦積み</span></div>
+    <div class="row"><span class="k">適用方針</span><span class="v">背景を薄いグレーに。番号を大きく、文字サイズUP</span></div>
+    <span class="status done">反映済み</span>
+  </div>
+
+  <div class="sec">
+    <span class="sec-no">Section 5</span>
+    <h3>解決策（ハーブティー）</h3>
+    <div class="row"><span class="k">参考</span><span class="v">理想の未来のキラキラ感。三角のセクション切替</span></div>
+    <div class="row"><span class="k">適用方針</span><span class="v">ハーブティー写真を背景に、文字は白い四角ボックスに乗せる（白シャドーなし）</span></div>
+    <span class="status done">反映済み</span>
+  </div>
+
+  <div class="sec">
+    <span class="sec-no">Section 6〜16</span>
+    <h3>講座紹介／USP／選ばれる理由／数字／受講生の声／中間CTA／講座全体像／無料相談／講師ストーリー／FAQ／最終CTA</h3>
+    <div class="row"><span class="k">状態</span><span class="v">原稿どおり実装済み。参考画像をいただき次第、順次デザイン調整します</span></div>
+    <span class="status wip">原稿反映済・デザイン調整待ち</span>
+  </div>
+
+  <footer>
+    <div class="note">
+      ・画像はすべて仮（Unsplash）です。実素材（Googleドライブ）と差し替え予定。<br>
+      ・各セクションの参考イメージを1枚ずつお送りいただくと、順番に調整していきます。<br>
+      ・金額・特典・実績などのテキストは原稿どおり。創作はしていません。
+    </div>
+    © 2026 Luna Herbtea / デザイン制作：ごきげんデザイン
+  </footer>
+
+</div>
+</body>
+</html>
