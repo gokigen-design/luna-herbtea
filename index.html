@@ -13,15 +13,16 @@
        VARIABLES & RESET
     ============================================================ */
     :root {
-      --green:   #66cdaa;
-      --green-dk:#4aae8c;
-      --beige:   #e9dacb;
-      --beige-lt:#f6f0e9;
-      --pink:    #db7093;
+      /* ぬくもりトーン（黄味グリーン × ハニーベージュ × ダスティローズ） */
+      --green:   #8faa63;  /* 黄味を足したセージグリーン */
+      --green-dk:#6d8a44;  /* 深いオリーブセージ（見出し・hover） */
+      --beige:   #e7d3b3;  /* ハニーベージュ */
+      --beige-lt:#f7f0e3;  /* 温かいクリーム */
+      --pink:    #cf8a9a;  /* くすみダスティローズ */
       --white:   #ffffff;
-      --text:    #333333;
-      --text-md: #666666;
-      --text-lt: #999999;
+      --text:    #3d352b;  /* 温かみのあるダークブラウン */
+      --text-md: #6b6155;
+      --text-lt: #9c9286;
       --ff-min:  'Shippori Mincho', 'Noto Serif JP', serif;
       --ff-sans: 'Noto Sans JP', sans-serif;
       --mw:      430px;
@@ -32,22 +33,40 @@
     body {
       font-family: var(--ff-sans);
       color: var(--text);
-      background: #eef5e8;
+      background: #efe6d4;
       min-height: 100vh;
     }
 
-    /* PC side background */
-    body::before {
-      content: '';
-      position: fixed;
+    /* PC side background — 3枚クロスフェード・スライドショー */
+    .pcbg { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+    .pcbg__slide {
+      position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(180deg, rgba(255,255,255,0.7), rgba(246,240,233,0.86)),
-        url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1920&q=70');
       background-size: cover;
       background-position: center;
-      filter: saturate(0.82) brightness(1.08);
-      z-index: 0;
+      opacity: 0;
+      animation: pcbgFade 12s infinite ease-in-out;
+      filter: saturate(0.92) brightness(1.05);
+    }
+    /* ▼ 本番では assets/bg1〜3.jpg（栗田さんの写真）に差し替え可 */
+    .pcbg__slide--1 { background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1920&q=75'); animation-delay: 0s; }
+    .pcbg__slide--2 { background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&q=75'); animation-delay: 4s; }
+    .pcbg__slide--3 { background-image: url('https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=1920&q=75'); animation-delay: 8s; }
+    /* 温かいクリームのベール（明るく・ふんわり） */
+    .pcbg__veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,252,247,0.62), rgba(247,240,227,0.78));
+    }
+    @keyframes pcbgFade {
+      0%   { opacity: 0; }
+      8%   { opacity: 1; }   /* ふわっと表示 */
+      25%  { opacity: 1; }   /* 約3秒キープ */
+      33%  { opacity: 0; }   /* ふわっと消える */
+      100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pcbg__slide { animation: none; }
+      .pcbg__slide--1 { opacity: 1; }
     }
 
     .lp {
@@ -2097,6 +2116,15 @@
 </head>
 
 <body>
+
+<!-- PC背景スライドショー（3枚クロスフェード） -->
+<div class="pcbg" aria-hidden="true">
+  <div class="pcbg__slide pcbg__slide--1"></div>
+  <div class="pcbg__slide pcbg__slide--2"></div>
+  <div class="pcbg__slide pcbg__slide--3"></div>
+  <div class="pcbg__veil"></div>
+</div>
+
 <div class="lp" id="lp">
 
 <!-- ====================================================
