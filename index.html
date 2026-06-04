@@ -64,7 +64,7 @@
     a { text-decoration: none; }
 
     /* ---- layout ---- */
-    .sec { padding: 72px 36px; }
+    .sec { padding: 52px 36px; }
     .sec-beige { background: var(--beige-lt); }
     .sec-beige2 { background: var(--beige); }
     .sec-dark { background: #2a2a2a; }
@@ -304,46 +304,89 @@
 
 
     /* ============================================================
-       SEC 2 · SYMPATHY
+       SEC 2 · SYMPATHY — 背景写真 + グレーオーバーレイ + グロー
     ============================================================ */
-    .sympathy { background: var(--white); }
+    .sympathy {
+      position: relative;
+      overflow: hidden;
+      background: #888;
+    }
+
+    /* 背景写真 */
+    .sympathy__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1541199249251-f713e6145474?w=860&q=80');
+      background-size: cover;
+      background-position: center 20%;
+      filter: grayscale(55%) brightness(0.6);
+    }
+
+    /* グレーグラデーションオーバーレイ */
+    .sympathy__bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(80,80,80,0.45) 0%,
+        rgba(60,60,60,0.55) 50%,
+        rgba(40,40,40,0.6) 100%
+      );
+    }
+
+    /* コンテンツを上に */
+    .sympathy > .sympathy__inner {
+      position: relative;
+      z-index: 2;
+      padding: 52px 36px;
+    }
 
     .sympathy__lead {
       font-size: 28px;
       font-family: var(--ff-min);
       line-height: 1.6;
+      color: #fff;
       margin-bottom: 12px;
+      text-shadow:
+        0 0 24px rgba(0,0,0,0.6),
+        0 2px 6px rgba(0,0,0,0.4);
     }
 
     .sympathy__intro {
       font-size: 18px;
-      color: var(--text-md);
+      color: rgba(255,255,255,0.85);
       line-height: 1.9;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
-    .check-list { list-style: none; margin-bottom: 40px; }
+    /* チェックリスト：フロストガラス風 */
+    .check-list { list-style: none; margin-bottom: 36px; }
     .check-list li {
       font-size: 19px;
       line-height: 1.75;
-      padding: 16px 0 16px 32px;
-      border-bottom: 1px solid var(--beige);
+      padding: 15px 16px 15px 44px;
+      margin-bottom: 8px;
       position: relative;
+      background: rgba(255,255,255,0.82);
+      color: var(--text);
+      box-shadow:
+        0 0 18px rgba(255,255,255,0.25),
+        0 2px 8px rgba(0,0,0,0.12);
     }
-    .check-list li:first-child { border-top: 1px solid var(--beige); }
     .check-list li::before {
       content: '';
       position: absolute;
-      left: 0; top: 24px;
-      width: 18px; height: 18px;
+      left: 14px; top: 22px;
+      width: 17px; height: 17px;
       border: 1.5px solid var(--green);
-      background: var(--white);
+      background: rgba(255,255,255,0.9);
     }
     .check-list li::after {
       content: '';
       position: absolute;
-      left: 4px; top: 27px;
-      width: 10px; height: 7px;
+      left: 18px; top: 25px;
+      width: 9px; height: 6px;
       border-left: 2px solid var(--green);
       border-bottom: 2px solid var(--green);
       transform: rotate(-45deg);
@@ -353,21 +396,33 @@
       font-family: var(--ff-min);
       font-size: 20px;
       line-height: 1.9;
-      color: var(--text);
-      padding-top: 8px;
+      color: #fff;
+      padding: 8px 20px 0;
+      text-shadow:
+        0 0 20px rgba(0,0,0,0.7),
+        0 2px 5px rgba(0,0,0,0.5);
     }
 
-    .sympathy__photo {
-      margin: 40px -36px 0;
-      height: 280px;
-      overflow: hidden;
+    .sympathy__photo { display: none; }
+
+
+    /* ============================================================
+       矢印型セクション切替
+    ============================================================ */
+    .arrow-transition {
       position: relative;
+      height: 64px;
+      background: var(--beige-lt); /* 次セクションの背景色 */
+      margin-top: -1px;
+      overflow: hidden;
     }
-    .sympathy__photo img {
-      height: 100%;
-      object-fit: cover;
+    .arrow-transition__shape {
+      position: absolute;
+      inset: 0;
+      /* 前セクション（暗いグレー）の色で下向き三角を作る */
+      background: #2a2a2a;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
     }
-
 
     /* ============================================================
        SEC 3 · RISK
@@ -392,108 +447,148 @@
     .risk__body p + p { margin-top: 20px; }
     .risk__accent {
       font-family: var(--ff-min);
-      font-size: 20px;
+      font-size: 22px;
       color: var(--text);
-      border-left: 3px solid var(--green);
-      padding-left: 18px;
-      margin: 28px 0;
-      line-height: 1.8;
+      text-align: center;
+      padding: 36px 24px 12px;
+      line-height: 2.0;
     }
 
 
     /* ============================================================
-       SEC 4 · CAUSES
+       SEC 4 · CAUSES — 番号大＋タイトル大＋文章＋写真の縦積み
     ============================================================ */
-    .causes { background: var(--white); }
+    .causes { background: #e8e6e3; }  /* 薄いグレー背景 */
 
     .causes__lead {
       font-size: 18px;
       color: var(--text-md);
-      margin-bottom: 44px;
+      text-align: center;
+      margin-bottom: 36px;
       line-height: 1.8;
     }
 
-    .cause-cards { display: flex; flex-direction: column; gap: 24px; }
+    .cause-cards { display: flex; flex-direction: column; gap: 0; }
 
+    /* 縦積みブロック */
     .cause-card {
-      background: var(--beige-lt);
-      padding: 32px 28px;
-      position: relative;
+      background: #e8e6e3;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: block; /* ← 縦積みに変更 */
     }
+    .cause-card:last-child { border-bottom: none; }
 
-    .cause-num {
-      position: absolute;
-      top: 20px; right: 24px;
-      font-size: 56px;
-      font-weight: 300;
-      font-family: var(--ff-sans);
-      color: var(--beige);
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .cause-chip {
-      display: inline-block;
-      border: 1px solid var(--green);
-      color: var(--green-dk);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      padding: 4px 14px;
+    /* ヘッダー：番号＋タイトル */
+    .cause-card__header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 0 36px;
       margin-bottom: 14px;
+    }
+
+    /* 大きな番号 */
+    .cause-chip {
+      font-family: var(--ff-sans);
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--pink);
+      line-height: 1;
+      flex-shrink: 0;
+      /* 丸バッジなし */
+      background: none;
+      width: auto;
+      height: auto;
+      border-radius: 0;
     }
 
     .cause-title {
+      font-family: var(--ff-min);
       font-size: 24px;
-      margin-bottom: 14px;
-      line-height: 1.5;
-      padding-right: 52px;
+      line-height: 1.4;
+      color: var(--text);
+      padding-right: 0;
+      margin-bottom: 0;
     }
 
     .cause-desc {
-      font-size: 17px;
+      font-size: 18px;
       color: var(--text-md);
       line-height: 1.85;
+      padding: 0 36px;
+      margin-bottom: 24px;
     }
+
+    /* 写真（ブロック下部に全幅） */
+    .cause-card__img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      display: block;
+    }
+    .cause-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 旧スタイルは非表示 */
+    .cause-num { display: none; }
+    .cause-card__body { display: contents; } /* 中のCSS引継ぎ用 */
 
 
     /* ============================================================
-       SEC 5 · SOLUTION
+       SEC 5 · SOLUTION — ハーブティー写真背景 + 白ボックス
     ============================================================ */
-    .solution { background: var(--white); }
-
-    .solution__hero-photo {
-      margin: 0 -36px;
-      height: 360px;
+    .solution {
+      position: relative;
       overflow: hidden;
-    }
-    .solution__hero-photo img {
-      height: 100%;
-      object-fit: cover;
+      padding: 56px 0;
     }
 
-    .solution__body {
-      padding-top: 52px;
+    /* ハーブティー写真を背景に（オーバーレイなし） */
+    .solution__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=860&q=85');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.95);
+    }
+
+    .solution__overlay { display: none; } /* オーバーレイ不要 */
+
+    /* 白い四角ボックスでテキストを乗せる */
+    .solution__inner {
+      position: relative;
+      z-index: 2;
+      margin: 0 20px;
+      background: rgba(255,255,255,0.95);
+      padding: 36px 28px;
     }
 
     .solution__accent {
       font-family: var(--ff-min);
-      font-size: 28px;
+      font-size: 26px;
       color: var(--green-dk);
       text-align: center;
-      padding: 32px 0;
-      line-height: 1.6;
-      border-top: 1px solid var(--beige);
-      border-bottom: 1px solid var(--beige);
-      margin: 32px 0;
+      padding: 24px 16px;
+      line-height: 1.7;
+      background: var(--beige-lt);
+      margin: 24px 0;
+      border-left: 3px solid var(--green);
+      border-right: 3px solid var(--green);
     }
 
-    .solution__list { list-style: none; margin: 28px 0; }
+    .solution__list { list-style: none; margin: 20px 0; }
     .solution__list li {
       font-size: 18px;
-      padding: 10px 0 10px 20px;
+      padding: 10px 0 10px 22px;
       position: relative;
-      color: var(--text-md);
-      line-height: 1.7;
+      color: var(--text);
+      line-height: 1.75;
     }
     .solution__list li::before {
       content: '';
@@ -506,9 +601,25 @@
 
     .solution__close {
       font-family: var(--ff-min);
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.95;
       color: var(--text);
+    }
+
+    /* 三角切替（白→写真セクション）用 */
+    .arrow-white-into-photo {
+      position: relative;
+      height: 56px;
+      background: #e8e6e3; /* causes のグレー */
+      overflow: hidden;
+      margin-top: -1px;
+    }
+    .arrow-white-into-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #e8e6e3;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
     }
 
 
@@ -682,7 +793,7 @@
     /* ============================================================
        SEC 9 · NUMBERS
     ============================================================ */
-    .numbers { background: #2a2a2a; padding: 80px 36px; }
+    .numbers { background: #2a2a2a; padding: 52px 36px; }
 
     .numbers-ttl {
       font-size: 26px;
@@ -693,11 +804,11 @@
     .numbers-sub {
       font-size: 15px;
       color: rgba(255,255,255,0.45);
-      margin-bottom: 64px;
+      margin-bottom: 44px;
       letter-spacing: 0.05em;
     }
 
-    .num-list { display: flex; flex-direction: column; gap: 52px; }
+    .num-list { display: flex; flex-direction: column; gap: 36px; }
 
     .num-item {
       border-left: 2px solid var(--green);
@@ -731,7 +842,7 @@
     /* ============================================================
        SEC 10 · TESTIMONIALS
     ============================================================ */
-    .testimonials { background: #eef5f2; padding: 72px 36px; }
+    .testimonials { background: #eef5f2; padding: 52px 36px; }
 
     .testimonials__head { margin-bottom: 40px; }
 
@@ -796,7 +907,7 @@
     ============================================================ */
     .mid-cta {
       background: var(--green);
-      padding: 64px 36px;
+      padding: 48px 36px;
       text-align: center;
     }
 
@@ -1249,7 +1360,7 @@
     .final-cta__body {
       position: relative;
       z-index: 2;
-      padding: 80px 36px 140px;
+      padding: 56px 36px 100px;
       text-align: center;
     }
 
@@ -1445,38 +1556,42 @@
 <!-- ====================================================
      SEC 2 · SYMPATHY
 ===================================================== -->
-<section class="sec sympathy" aria-label="共感">
-  <div class="lbl">FOR YOU</div>
-  <h2 class="ttl">「なんとなく不調」、<br>我慢していませんか？</h2>
+<section class="sympathy" aria-label="共感">
+  <!-- 背景：グレーがかった女性写真 -->
+  <div class="sympathy__bg" aria-hidden="true"></div>
+  <div class="sympathy__bg-overlay" aria-hidden="true"></div>
 
-  <p class="sympathy__intro">
-    病院に行くほどじゃない。<br>
-    でも、確かに感じている体の違和感。
-  </p>
+  <!-- コンテンツ -->
+  <div class="sympathy__inner">
+    <div class="lbl" style="color:rgba(255,255,255,0.7);">FOR YOU</div>
+    <h2 class="sympathy__lead">「なんとなく不調」、<br>我慢していませんか？</h2>
 
-  <ul class="check-list" role="list">
-    <li>朝起きても疲れが取れない</li>
-    <li>夜、なかなか眠れない</li>
-    <li>理由もなくイライラしてしまう</li>
-    <li>ホットフラッシュで突然汗が止まらない</li>
-    <li>手足の冷え、むくみが気になる</li>
-    <li>PMSで毎月つらい</li>
-  </ul>
+    <p class="sympathy__intro">
+      病院に行くほどじゃない。<br>
+      でも、確かに感じている体の違和感。
+    </p>
 
-  <p class="sympathy__close">
-    「歳のせいかな」「みんなそうだよね」<br>
-    そう思って、やり過ごしていませんか？
-  </p>
+    <ul class="check-list" role="list">
+      <li>朝起きても疲れが取れない</li>
+      <li>夜、なかなか眠れない</li>
+      <li>理由もなくイライラしてしまう</li>
+      <li>ホットフラッシュで突然汗が止まらない</li>
+      <li>手足の冷え、むくみが気になる</li>
+      <li>PMSで毎月つらい</li>
+    </ul>
 
-  <div class="sympathy__photo" role="img" aria-label="不調に悩む女性のイメージ">
-    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=860&q=85"
-         alt="女性がリラックスしているイメージ" loading="lazy">
+    <p class="sympathy__close">
+      「歳のせいかな」「みんなそうだよね」<br>
+      そう思って、やり過ごしていませんか？
+    </p>
   </div>
 </section>
 
 
-<!-- diagonal: white → beige -->
-<div class="diag-down" aria-hidden="true"></div>
+<!-- 矢印型セクション切替（共感→放置リスク） -->
+<div class="arrow-transition" aria-hidden="true">
+  <div class="arrow-transition__shape"></div>
+</div>
 
 
 <!-- ====================================================
@@ -1492,14 +1607,18 @@
     <p>更年期の症状がひどくなったり、心のバランスを崩してしまうケースも少なくありません。</p>
   </div>
 
-  <div class="risk__photo" role="img" aria-label="植物のイメージ">
-    <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=860&q=85"
-         alt="植物とハーブのイメージ" loading="lazy">
+  <div class="risk__photo" role="img" aria-label="不調で悩む女性のイメージ">
+    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=860&q=85"
+         alt="不調で悩む女性のイメージ" loading="lazy">
   </div>
 
   <div class="risk__accent">
-    大切なのは、体が出している"サイン"に気づくこと。<br>
-    そして、早めに自分で整える方法を知っておくこと。
+    大切なのは、<br>
+    体が出している<span style="color:var(--pink); font-weight:600;">"サイン"</span>に<br>
+    気づくこと。<br><br>
+    そして、早めに<br>
+    <span style="color:var(--pink); font-weight:600;">自分で整える</span>方法を<br>
+    知っておくこと。
   </div>
 </section>
 
@@ -1518,62 +1637,74 @@
 
   <div class="cause-cards">
 
+    <!-- 01 ホルモンバランス -->
     <div class="cause-card">
-      <div class="cause-num" aria-hidden="true">01</div>
-      <div class="cause-chip">ホルモンバランス</div>
-      <h3 class="cause-title">ホルモンバランスの変化</h3>
+      <div class="cause-card__header">
+        <span class="cause-chip">01</span>
+        <h3 class="cause-title">ホルモンバランスの変化</h3>
+      </div>
       <p class="cause-desc">
         女性ホルモン（エストロゲン）は年齢とともにゆるやかに変化。
-        肌や睡眠、気分のゆらぎなど、女性の心と体に深く関わるため、
-        変化の時期には不調を感じる方も少なくありません。
+        心と体に深く関わるため、変化の時期には不調を感じる方も少なくありません。
       </p>
+      <div class="cause-card__img">
+        <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=860&q=80"
+             alt="ホルモンバランスのイメージ" loading="lazy">
+      </div>
     </div>
 
+    <!-- 02 自律神経 -->
     <div class="cause-card">
-      <div class="cause-num" aria-hidden="true">02</div>
-      <div class="cause-chip">自律神経</div>
-      <h3 class="cause-title">自律神経の<br>バランスの乱れ</h3>
+      <div class="cause-card__header">
+        <span class="cause-chip">02</span>
+        <h3 class="cause-title">自律神経のバランスの乱れ</h3>
+      </div>
       <p class="cause-desc">
-        交感神経と副交感神経のスイッチがうまく切り替わらなくなる。
-        「疲れているのに休めない」「眠りたいのに眠れない」——
-        そんな状態は、自律神経のバランスが関係しているかも。
+        交感・副交感神経のスイッチがうまく切り替わらなくなる。
+        「疲れているのに休めない」「眠りたいのに眠れない」など。
       </p>
+      <div class="cause-card__img">
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=860&q=80"
+             alt="植物 自律神経のイメージ" loading="lazy">
+      </div>
     </div>
 
+    <!-- 03 巡り -->
     <div class="cause-card">
-      <div class="cause-num" aria-hidden="true">03</div>
-      <div class="cause-chip">巡り</div>
-      <h3 class="cause-title">巡り（気・血・水）の低下</h3>
+      <div class="cause-card__header">
+        <span class="cause-chip">03</span>
+        <h3 class="cause-title">巡り（気・血・水）の低下</h3>
+      </div>
       <p class="cause-desc">
-        年齢を重ねるにつれて、気になる冷え・むくみ・重だるさ。
-        40代以降、毛細血管は最大で約40%が消失していくと言われています。
+        40代以降、毛細血管は最大で約40%が消失。
         冷え、むくみ、便秘——巡りの滞りが、さまざまな不調として現れます。
       </p>
+      <div class="cause-card__img">
+        <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=860&q=80"
+             alt="巡りのイメージ" loading="lazy">
+      </div>
     </div>
 
   </div>
 </section>
 
 
-<!-- diagonal: white → beige -->
-<div class="diag-down" aria-hidden="true"></div>
+<!-- 白三角→キラキラ写真セクション切替 -->
+<div class="arrow-white-into-photo" aria-hidden="true"></div>
 
 
 <!-- ====================================================
-     SEC 5 · SOLUTION
+     SEC 5 · SOLUTION — キラキラ背景
 ===================================================== -->
-<section class="sec solution" style="background:var(--beige-lt); padding-top:0;" aria-label="解決策">
+<section class="solution" aria-label="解決策">
+  <div class="solution__bg" aria-hidden="true"></div>
+  <div class="solution__overlay" aria-hidden="true"></div>
 
-  <div class="solution__hero-photo" role="img" aria-label="ハーブティーの写真">
-    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=860&q=85"
-         alt="ハーブティーのクローズアップ" loading="lazy">
-  </div>
-
-  <div class="solution__body" style="padding: 0 36px 72px;">
-    <div class="lbl" style="padding-top:52px;">SOLUTION</div>
+  <div class="solution__inner">
+    <div class="lbl">SOLUTION</div>
     <h2 class="ttl">その3つを、自然の力で整える方法、<br><em>それがハーブティー。</em></h2>
 
-    <p style="font-size:18px; color:var(--text-md); line-height:1.9; margin-bottom:28px;">
+    <p style="font-size:18px; color:var(--text); line-height:1.9; margin-bottom:24px; text-shadow:0 1px 8px rgba(255,255,255,0.9);">
       ハーブティーには、心と体にやさしく働きかける力があります。
     </p>
 
@@ -1583,11 +1714,11 @@
       <li>美容やセルフケア習慣</li>
     </ul>
 
-    <p style="font-size:18px; color:var(--text-md); line-height:1.9; margin-bottom:24px;">
+    <p style="font-size:18px; color:var(--text); line-height:1.9; margin-bottom:16px; text-shadow:0 1px 8px rgba(255,255,255,0.9);">
       など、目的や気分に合わせて美味しくブレンド。
     </p>
 
-    <p style="font-size:16px; color:var(--text-lt); margin-bottom:8px;">しかも</p>
+    <p style="font-size:15px; color:var(--text-md); margin-bottom:6px; text-align:center;">しかも</p>
 
     <div class="solution__accent">
       「お湯を注いでたった３分待つだけ」
@@ -1599,7 +1730,6 @@
       美味しさや香りを楽しみながら、自然に続けられる。<br><br>
       そして、何より大切なのは<br>
       「今の自分に合ったハーブ」を知ること。<br><br>
-      体も心も、毎日同じではありません。<br>
       今の自分の状態にやさしく寄り添いながら、<br>
       暮らしの中に少しずつ取り入れていく。<br><br>
       それが、無理なく続けられる<br>
@@ -1609,7 +1739,7 @@
 </section>
 
 
-<!-- diagonal: beige → white -->
+<!-- 白三角で次のセクションへ -->
 <div class="diag-up" aria-hidden="true"></div>
 
 
